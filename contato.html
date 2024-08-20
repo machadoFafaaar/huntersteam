@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/file.ico" type="image/x-icon">
+    <title>Contato - Loja de Camisas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            color: #797575;
+        }
+        
+        header {
+            background-color: #5e0909; /* Verde Esmeralda */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #fdfdfd;
+        }
+
+        .contact-form, .confirmation-message {
+            background-color: white;
+            padding: 20px;
+            margin: 20px auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            max-width: 600px;
+            text-align: left;
+        }
+
+        .contact-form label {
+            font-weight: bold;
+            display: block;
+            margin: 15px 0 5px;
+        }
+
+        .contact-form input[type="text"], 
+        .contact-form input[type="email"], 
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            height: 150px;
+        }
+
+        .contact-form button {
+            background-color: #7a0808;
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        .contact-form button:hover {
+            background-color: #5f0b0b;
+        }
+
+        .confirmation-message {
+            display: none;
+        }
+
+        footer {
+            background-color: #5a0707;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function showConfirmation() {
+            document.querySelector('.contact-form').style.display = 'none';
+            document.querySelector('.confirmation-message').style.display = 'block';
+            return false; // Prevents form submission
+        }
+    </script>
+</head>
+<body>
+
+<header>
+    <h1>Contato - Hunters</h1>
+</header>
+
+<div class="content">
+    <h1>Entre em Contato Conosco</h1>
+    <p>Se você tiver alguma dúvida ou sugestão, preencha o formulário abaixo e entraremos em contato com você o mais breve possível.</p>
+
+    <form class="contact-form" action="enviar_mensagem.php" method="POST" onsubmit="return showConfirmation()">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="assunto">Assunto:</label>
+        <input type="text" id="assunto" name="assunto" required>
+
+        <label for="mensagem">Mensagem:</label>
+        <textarea id="mensagem" name="mensagem" required></textarea>
+
+        <button type="submit">Enviar Mensagem</button>
+    </form>
+
+    <div class="confirmation-message">
+        <h2>Sua mensagem foi enviada com sucesso!</h2>
+        <p>Agradecemos por entrar em contato conosco. Nossa equipe responderá o mais breve possível.</p>
+        <p>Se precisar de ajuda adicional, sinta-se à vontade para <a href="index.html">voltar para a página inicial</a>.</p>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Clube de Futebol Hunters. Todos os direitos reservados.</p>
+</footer>
+
+</body>
+</html>

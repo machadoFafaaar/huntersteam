@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/file.ico" type="image/x-icon">
+    <title>Notícias Hunters</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #080808;
+            color: #333;
+        }
+        header {
+            background-color: #910808; /* Verde Esmeralda */
+            color: rgb(241, 234, 234);
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #050000; /* Verde mais escuro */
+            display: flex;
+            justify-content: space-around;
+            padding: 15px 0;
+        }
+        nav a {
+            color: rgb(129, 9, 9);
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #940606;
+            border-radius: 5px;
+        }
+        .hero {
+            background-image: url("Hunters.HTML/img/Captura\ de\ tela\ 2024-08-18\ 215515.png"); /* Imagem do estádio do clube */
+            background-size: cover;
+            background-position: center;
+            color: rgb(226, 221, 221);
+            padding: 100px 20px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+        .hero p {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+        .content {
+            padding: 20px;
+        }
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .news-card {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+        .news-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .news-card h3 {
+            color: #b30707;
+        }
+        footer {
+            background-color: #9e0a0a;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Clube de Futebol Hunters</h1>
+    <p>Últimas Notícias do Clube</p>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="noticias.html">Notícias</a>
+    <a href="jogos.html">Jogos</a>
+    <a href="time.html">Time</a>
+    <a href="loja.html">Loja</a>
+    <a href="contato.html">Contato</a>
+</nav>
+
+<section class="hero">
+    <h1>Notícias em Destaque</h1>
+    <p>Fique por dentro das últimas novidades da Hunters</p>
+</section>
+
+<div class="content">
+    <section class="news-grid">
+        <div class="news-card">
+            <img src="img/Captura de tela 2024-08-18 215515.png" alt="Vitória da Hunters">
+            <h3>Hunters vence e lidera o campeonato</h3>
+            <p>Com uma vitória sólida por 3x0, a Hunters assume a liderança do campeonato, mostrando força dentro de casa.</p>
+        </div>
+        <div class="news-card">
+            <img src="img/Treinador.jpeg" alt="Treinador da Hunters">
+            <h3>Treinador fala sobre os próximos desafios</h3>
+            <p>O treinador da Hunters destacou a importância de manter o foco e a intensidade nos próximos jogos.</p>
+        </div>
+        <div class="news-card">
+            <img src="img/Treino.jpeg" alt="Treino da Hunters">
+            <h3>Preparação intensa para o clássico</h3>
+            <p>A equipe intensifica os treinos para enfrentar seu maior rival no próximo final de semana.</p>
+        </div>
+        <div class="news-card">
+            <img src="img/Kaio.jpeg" alt="Kaio Hunters">
+            <h3>Novo jogador é contratado</h3>
+            <p>O atleta Kaio fez o teste para entrar no time e passou com êxito, ele estará em campo no próximo sábado.</p>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2024 Clube de Futebol Hunters. Todos os direitos reservados.</p>
+</footer>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</body>
+</html>
