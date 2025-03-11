@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Carousel } from "@/components/ui/carousel";
 
 const highlights = [
   { title: "Campeões do Torneio X!", image: "/img/trophy.jpg" },
@@ -34,20 +32,24 @@ export default function HomePage() {
       </motion.div>
 
       {/* Carrossel de Destaques */}
-      <Carousel>
+      <div className="w-full flex overflow-x-scroll gap-4 p-4">
         {highlights.map((item, index) => (
-          <div key={index} className="w-full flex flex-col items-center">
-            <img src={item.image} alt={item.title} className="rounded-lg shadow-lg h-64 w-auto" />
+          <div key={index} className="min-w-[250px] flex flex-col items-center">
+            <img
+              src={item.image}
+              alt={item.title}
+              className="rounded-lg shadow-lg h-40 w-auto"
+            />
             <p className="text-lg mt-2">{item.title}</p>
           </div>
         ))}
-      </Carousel>
+      </div>
 
       {/* Botões de Navegação */}
       <div className="flex gap-4 mt-6">
-        <Button variant="outline">Calendário de Jogos</Button>
-        <Button variant="default">Últimas Notícias</Button>
-        <Button variant="secondary">Loja Oficial</Button>
+        <button className="bg-gray-700 px-4 py-2 rounded-md">Calendário de Jogos</button>
+        <button className="bg-blue-700 px-4 py-2 rounded-md">Últimas Notícias</button>
+        <button className="bg-green-700 px-4 py-2 rounded-md">Loja Oficial</button>
       </div>
     </div>
   );
