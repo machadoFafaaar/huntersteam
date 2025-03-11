@@ -1,56 +1,59 @@
-<import { useState, useEffect } from "react">
-<import { motion } from "framer-motion";
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/file.ico" type="image/x-icon">
+    <meta name="description" content="HUNTERS FC">
+    <meta name="keywords" content="Clube de futebol, HUNTERS FC, Cacaçadores, futebol, time de futebol">
+    <meta name="author" content="Fabrício Machado">
+    <title>HUNTERS FC</title>
+    <link rel="stylesheet" type="text/css" href="index.css" />
+</head>
+<body>
+    
+<header>
+    <h1>HUNTERS FC</h1>
+</header>
 
-<const highlights = [
-  { title: "Campeões do Torneio X!", image: "/img/trophy.jpg" },
-  { title: "Novo Uniforme Lançado!", image: "/img/uniform.jpg" },
-  { title: "Próximo Jogo: Hunters vs Rivais", image: "/img/match.jpg" },
-];
+<nav>
+    <a href="index.html">Home</a>
+    <a href="noticias.html">Notícias</a>
+    <a href="jogos.html">Jogos</a>
+    <a href="time.html">Time</a>
+    <a href="loja.html">Loja</a>
+    <a href="contato.html">Contato</a>
+</nav>
 
-<const messages = ["Caçando vitórias!", "Unidos pela paixão!", "Rumo ao topo!"]
+<section class="hero">
+    <h1>Bem-vindo ao Clube Hunters</h1>
+    <p>A paixão pelo futebol nos une!</p>
+</section>
 
-<export default function HomePage() {
-  const [messageIndex, setMessageIndex] = useState(0);
+<div class="content">
+    <section class="grid-container">
+        <div class="card">
+            <h3>Últimas Notícias</h3>
+            <p>HUNTERS CONSEGUE A VIRADA CONTRA O EL RIVER!!! HUNTERS GANHA DE 10X0 (Agregado 14X10)!!</p>
+        </div>
+        <div class="card">
+            <h3>Hunters consegue a virada impossível!</h3>
+            <p>A equipe controlou o jogo todo, os jogadores estavam focados para conseguir essa linda virada.</p>
+        </div>
+        <div class="card">
+            <h3>Loja Oficial</h3>
+            <p>Compre os novos uniformes e produtos oficiais da Hunters.</p>
+        </div>
+        <div class="card">
+            <h3>Contato</h3>
+            <p>Entre em contato e faça o teste para ser um jogador da Hunters.</p>
+        </div>
+    </section>
+</div>
 
-  useEffect(() => {
-    <const interval = setInterval(() => {
-      <setMessageIndex((prev) => (prev + 1) % messages.length);
-    }, 3000);<
-    return () => clearInterval(interval);
-  }, []);<
+<footer>
+    <p>&copy; 2025 Clube de Futebol Hunters. Todos os direitos reservados.</p>
+</footer>
 
-  return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-black text-white">
-      {/* Banner animado */}
-      <motion.div
-        className="text-3xl font-bold my-4"
-        animate={{ opacity: [0, 1], y: [-10, 0] }}
-        transition={{ duration: 0.8 }}
-        key={messageIndex}
-      >
-        {messages[messageIndex]}
-      </motion.div>
-
-      {/* Carrossel de Destaques */}
-      <div className="w-full flex overflow-x-scroll gap-4 p-4">
-        {highlights.map((item, index) => (
-          <div key={index} className="min-w-[250px] flex flex-col items-center">
-            <img
-              src={item.image}
-              alt={item.title}
-              className="rounded-lg shadow-lg h-40 w-auto"
-            />
-            <p className="text-lg mt-2">{item.title}</p>
-          </div>
-        ))}
-      </div>
-
-      {/* Botões de Navegação */}
-      <div className="flex gap-4 mt-6">
-        <button className="bg-gray-700 px-4 py-2 rounded-md">Calendário de Jogos</button>
-        <button className="bg-blue-700 px-4 py-2 rounded-md">Últimas Notícias</button>
-        <button className="bg-green-700 px-4 py-2 rounded-md">Loja Oficial</button>
-      </div>
-    </div>
-  );
-}
+</body>
+</html>
