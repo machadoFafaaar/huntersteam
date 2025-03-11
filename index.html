@@ -1,23 +1,23 @@
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+<import { useState, useEffect } from "react">
+<import { motion } from "framer-motion";
 
-const highlights = [
+<const highlights = [
   { title: "Campeões do Torneio X!", image: "/img/trophy.jpg" },
   { title: "Novo Uniforme Lançado!", image: "/img/uniform.jpg" },
   { title: "Próximo Jogo: Hunters vs Rivais", image: "/img/match.jpg" },
 ];
 
-const messages = ["Caçando vitórias!", "Unidos pela paixão!", "Rumo ao topo!"];
+<const messages = ["Caçando vitórias!", "Unidos pela paixão!", "Rumo ao topo!"]
 
-export default function HomePage() {
+<export default function HomePage() {
   const [messageIndex, setMessageIndex] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setMessageIndex((prev) => (prev + 1) % messages.length);
-    }, 3000);
+    <const interval = setInterval(() => {
+      <setMessageIndex((prev) => (prev + 1) % messages.length);
+    }, 3000);<
     return () => clearInterval(interval);
-  }, []);
+  }, []);<
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-black text-white">
