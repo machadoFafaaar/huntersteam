@@ -94,34 +94,56 @@
       background-color: #0000;
       color: #0000;
     }
-.card {
+  .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .card {
       background-color: #ffffff;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      max-width: 400px;
-      padding: 30px;
+      width: 300px;
+      padding: 20px;
       text-align: center;
     }
 
-    .card h2 {
+    .card h3 {
       color: #333;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
     }
 
     .card p {
       color: #555;
-      font-size: 16px;
-      line-height: 1.5;
+      font-size: 15px;
+      line-height: 1.4;
+    }  .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
     }
 
-    .card ul {
-      text-align: left;
-      padding-left: 20px;
-      color: #444;
+    .card {
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      padding: 20px;
+      text-align: center;
     }
 
-    .card ul li {
+    .card h3 {
+      color: #333;
       margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #555;
+      font-size: 15px;
+      line-height: 1.4;
     }
   </style>
 </head>
@@ -158,25 +180,27 @@
   </tr>
 </table>
 
-<section class="beneficios">
-  <h2>Benefícios de ser um Sócio-Caçador</h2>
-  <ul>
-    <li>Descontos em produtos oficiais</li>
-    <li>Acesso antecipado a eventos</li>
-    <li>Grupo exclusivo no WhatsApp</li>
-    <li>Sorteios mensais</li>
-    <li>Visitas ao vestiário</li>
-  </ul>
-</section>
-<div class="card">
-    <h2>Benefícios de Participar</h2>
-    <p>Confira alguns dos principais benefícios:</p>
-    <ul>
-      <li>Desenvolvimento pessoal e em equipe</li>
-      <li>Melhoria na saúde física e mental</li>
-      <li>Fortalecimento de amizades e conexões</li>
-      <li>Oportunidades de crescimento e visibilidade</li>
-    </ul>
+ <div class="card-container">
+    <div class="card">
+      <h3>Benefício 1</h3>
+      <p>Melhora da saúde física com treinos e jogos regulares.</p>
+    </div>
+    <div class="card">
+      <h3>Benefício 2</h3>
+      <p>Desenvolvimento de espírito de equipe e liderança.</p>
+    </div>
+    <div class="card">
+      <h3>Benefício 3</h3>
+      <p>Participação em eventos e competições exclusivas.</p>
+    </div>
+    <div class="card">
+      <h3>Benefício 4</h3>
+      <p>Reconhecimento e visibilidade no cenário esportivo.</p>
+    </div>
+    <div class="card">
+      <h3>Benefício 5</h3>
+      <p>Construção de amizades e memórias inesquecíveis.</p>
+    </div>
   </div>
 
 <section class="midia">
