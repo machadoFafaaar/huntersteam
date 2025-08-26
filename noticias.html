@@ -1,180 +1,225 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="img/file.ico" type="image/x-icon">
-    <title>Notícias Hunters</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #080808;
-            color: #333;
-        }
-        header {
-            background-color: #910808; /* Verde Esmeralda */
-            color: rgb(241, 234, 234);
-            padding: 20px;
-            text-align: center;
-        }
-        nav {
-            background-color: #050000; /* Verde mais escuro */
-            display: flex;
-            justify-content: space-around;
-            padding: 15px 0;
-        }
-        nav a {
-            color: rgb(129, 9, 9);
-            text-decoration: none;
-            font-weight: bold;
-            padding: 10px;
-            transition: background-color 0.3s;
-        }
-        nav a:hover {
-            background-color: #940606;
-            border-radius: 5px;
-        }
-        .hero {
-            background-image: url("Hunters.HTML/img/Captura\ de\ tela\ 2024-08-18\ 215515.png"); /* Imagem do estádio do clube */
-            background-size: cover;
-            background-position: center;
-            color: rgb(226, 221, 221);
-            padding: 100px 20px;
-            text-align: center;
-        }
-        .hero h1 {
-            font-size: 3em;
-            margin: 0;
-        }
-        .hero p {
-            font-size: 1.5em;
-            margin: 20px 0;
-        }
-        .content {
-            padding: 20px;
-        }
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        .news-card {
-            background-color: white;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-        .news-card:hover {
-            transform: translateY(-5px);
-        }
-        .news-card img {
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
-        }
-        .news-card h3 {
-            color: #b30707;
-        }
-        footer {
-            background-color: #9e0a0a;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 20px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="img/file.ico" type="image/x-icon">
+  <title>Notícias Hunters</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #0b0b0b;
+      color: #fff;
+    }
+
+    header {
+      background: linear-gradient(135deg, #ff0000, #111);
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      letter-spacing: 2px;
+    }
+
+    header p {
+      margin-top: 0.3rem;
+      font-size: 1rem;
+      color: #ddd;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #111;
+      padding: 1rem;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff0000;
+      transform: scale(1.1);
+    }
+
+    .hero {
+      background: url("Hunters.HTML/img/Captura de tela 2024-08-18 215515.png") center/cover no-repeat;
+      height: 45vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+    }
+
+    .hero h1, .hero p {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      text-transform: uppercase;
+      text-shadow: 2px 2px 10px black;
+    }
+
+    .hero p {
+      margin-top: 0.5rem;
+      font-size: 1.2rem;
+      background: rgba(255,0,0,0.7);
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+    }
+
+    .content {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .news-card {
+      background: #1a1a1a;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(255,0,0,0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .news-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 6px 20px rgba(255,0,0,0.6);
+    }
+
+    .news-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: 0.4s;
+    }
+
+    .news-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .news-card h3 {
+      color: #ff0000;
+      margin: 1rem;
+    }
+
+    .news-card p {
+      margin: 0 1rem 1rem;
+      color: #ddd;
+      font-size: 0.95rem;
+      line-height: 1.4rem;
+    }
+
+    footer {
+      background: #111;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+      border-top: 2px solid #ff0000;
+    }
+
+    footer p {
+      font-size: 0.9rem;
+      color: #bbb;
+    }
+  </style>
 </head>
 <body>
 
 <header>
-    <h1>Clube de Futebol Hunters</h1>
-    <p>Últimas Notícias do Clube</p>
+  <h1>Clube de Futebol Hunters</h1>
+  <p>Últimas Notícias do Clube</p>
 </header>
 
 <nav>
-    <a href="index.html">Home</a>
-    <a href="noticias.html">Notícias</a>
-    <a href="jogos.html">Jogos</a>
-    <a href="time.html">Time</a>
-    <a href="loja.html">Loja</a>
-    <a href="contato.html">Contato</a>
+  <a href="index.html">Home</a>
+  <a href="noticias.html">Notícias</a>
+  <a href="jogos.html">Jogos</a>
+  <a href="time.html">Time</a>
+  <a href="loja.html">Loja</a>
+  <a href="contato.html">Contato</a>
 </nav>
 
 <section class="hero">
-    <h1>Notícias em Destaque</h1>
-    <p>Fique por dentro das últimas novidades da Hunters</p>
+  <h1>Notícias em Destaque</h1>
+  <p>Fique por dentro das últimas novidades da Hunters</p>
 </section>
 
 <div class="content">
-    <section class="news-grid">
-        <div class="news-card">
-            <img src="img/Imagem do WhatsApp de 2025-04-21 à(s) 22.40.43_27614f9f.jpg">
-            <h3>GEOVANNE NOSSO CAMISA 69</h3>
-            <p>🚨 NOVO REFORÇO NA ÁREA! 🚨
-<br>
-Atenção, nação Hunters! Temos um novo caçador no meio-campo! 💥⚽
-<br>
-🔥 Geovanne é o novo meia da Hunters!
-Com um chute explosivo, ele chega pra incendiar os jogos e deixar os adversários no chão! 💣👟
-<br>
-💬 “Cheguei pra acabar com esses times da Vila Aurora.” – Geovanne
-<br>
-🔰 Bem-vindo à família, Geovanne! Que venham os golaços e as grandes vitórias! 🔴⚫</p>
-        </div>
-        <div class="news-card">
-            <img src="img/WhatsApp Image 2025-05-17 at 00.43.30.jpeg" alt="GK 06">
-            <h3>DANIEL GERAMIAS NOSSO CAMISA 06</h3>
-            <p>Novo 06 na área!
-<br>
-Tem novidade no gol! 🧤
-<br>
-A família Hunters ganha reforço com a chegada de Daniel Geremias, nosso novo goleiro!
-<br>
-Bem-vindo ao bando, paredão! Que venham grandes defesas, vitórias e histórias com o manto!
-<br>
-Vamos com tudo! 🔥🔴⚫</p>
-        </div>
-        <div class="news-card">
-            <img src="img/HUNTERS.png" alt="Peneira">
-            <h3>Peneira</h3>
-            <p>A Hunters FC vai realizar uma peneira em busca de novos talentos para integrar o elenco! 🔍⚽
-<br>
-Se você tem raça, vontade de vencer e quer vestir o manto laranja e preto, essa é a sua hora!
-<br>
-Mostre seu futebol e venha fazer parte da nossa família!
-<br>
-📅 05.06
-<br>
-📍 Alvorada
-<br>
-🕒 14:30
-<br>
-Idade Mínina: 14-20 anos.</p>
-        </div>
-        <div class="news-card">
-            <img src="img/WhatsApp Image 2025-05-17 at 02.12.51.jpeg" alt="Torcida Hunters">
-            <h3>Gratidão, Força Jovem Glu Glu!</h3>
-            <P>Vocês são a alma da Hunters!
-<br>
-Nos empurram nos momentos difíceis, comemoram conosco nas vitórias e nunca deixam de acreditar. O apoio de vocês faz toda a diferença dentro e fora de campo.
-<br>
-Essa caminhada é por e com vocês! 💪
-<br>
-Obrigado, Força Jovem Glu Glu!
-<br>
-#HuntersFC #ForçaJovemGluGlu #JuntosSomosMaisFortes</P>
+  <section class="news-grid">
 
-🔥💪 #SomosHunters #JuntosSomosMaisFortes </p>
-        </div>
-    </section>
+    <div class="news-card">
+      <img src="img/Imagem do WhatsApp de 2025-04-21 à(s) 22.40.43_27614f9f.jpg">
+      <h3>GEOVANNE NOSSO CAMISA 69</h3>
+      <p>🚨 NOVO REFORÇO NA ÁREA! 🚨<br>
+      Atenção, nação Hunters! Temos um novo caçador no meio-campo! 💥⚽<br>
+      🔥 Geovanne é o novo meia da Hunters, chega pra incendiar os jogos e deixar os adversários no chão! 💣👟<br>
+      💬 “Cheguei pra acabar com esses times da Vila Aurora.” – Geovanne</p>
+    </div>
+
+    <div class="news-card">
+      <img src="img/WhatsApp Image 2025-05-17 at 00.43.30.jpeg" alt="GK 06">
+      <h3>DANIEL GERAMIAS NOSSO CAMISA 06</h3>
+      <p>🧤 Novo paredão na área!<br>
+      Daniel Geremias chega para defender o gol da Hunters!<br>
+      Bem-vindo ao bando, muralha! 🔥🔴⚫</p>
+    </div>
+
+    <div class="news-card">
+      <img src="img/HUNTERS.png" alt="Peneira">
+      <h3>Peneira Hunters</h3>
+      <p>🔍⚽ Está chegando a hora!<br>
+      A Hunters FC vai realizar uma peneira em busca de novos talentos!<br>
+      📅 05/06 – 📍 Alvorada – 🕒 14:30<br>
+      Idade mínima: 14 a 20 anos.<br>
+      Vista o manto e faça história!</p>
+    </div>
+
+    <div class="news-card">
+      <img src="img/WhatsApp Image 2025-05-17 at 02.12.51.jpeg" alt="Torcida Hunters">
+      <h3>Gratidão, Força Jovem Glu Glu!</h3>
+      <p>Vocês são a alma da Hunters! 💪<br>
+      Estão conosco nos momentos difíceis e nas vitórias.<br>
+      Obrigado, Força Jovem Glu Glu! 🔴⚫<br>
+      #HuntersFC #JuntosSomosMaisFortes</p>
+    </div>
+
+  </section>
 </div>
 
 <footer>
-    <p>&copy; 2025 Clube de Futebol Hunters. Todos os direitos reservados.</p>
+  <p>&copy; 2025 Clube de Futebol Hunters. Todos os direitos reservados.</p>
 </footer>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </body>
 </html>
