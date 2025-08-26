@@ -1,204 +1,227 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="img/file.ico" type="image/x-icon">
-    <title>Loja - Camisas do Clube de Futebol Esmeralda</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #080808;
-            color: #333;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="img/file.ico" type="image/x-icon">
+  <title>Loja - Clube de Futebol Hunters</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #080808;
+      color: #fff;
+    }
 
-        header {
-            background-color: #5f0505; /* Verde Esmeralda */
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
+    header {
+      background: linear-gradient(90deg, #5f0505, #870000);
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
 
-        nav {
-            background-color: #0e0f0f; /* Verde mais escuro */
-            display: flex;
-            justify-content: space-around;
-            padding: 15px 0;
-        }
+    nav {
+      background-color: #0e0f0f;
+      display: flex;
+      justify-content: space-around;
+      padding: 15px 0;
+      flex-wrap: wrap;
+    }
 
-        nav a {
-            color: rgb(241, 241, 241);
-            text-decoration: none;
-            font-weight: bold;
-            padding: 10px;
-            transition: background-color 0.3s;
-        }
+    nav a {
+      color: #f1f1f1;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 10px 15px;
+      transition: 0.3s;
+    }
 
-        nav a:hover {
-            background-color: #fafdfc;
-            border-radius: 5px;
-        }
+    nav a:hover {
+      background-color: #fff;
+      color: #000;
+      border-radius: 5px;
+    }
 
-        .content {
-            padding: 20px;
-        }
+    .content {
+      padding: 30px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
 
-        h1 {
-            text-align: center;
-            color: #fcfcfc;
-        }
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
 
-        .products {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-        }
+    h1 {
+      color: #ff4444;
+      text-transform: uppercase;
+      font-size: 2.5em;
+    }
 
-        .product-card {
-            background-color: white;
-            margin: 15px;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            text-align: center;
-            width: 300px;
-        }
+    h2 {
+      color: #ffb347;
+      border-bottom: 2px solid #ffb347;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
 
-        .product-card img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
+    .category {
+      margin-bottom: 60px;
+    }
 
-        .product-card h2 {
-            color: #790000;
-            margin: 10px 0;
-        }
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
 
-        .product-card p {
-            font-size: 18px;
-            margin: 10px 0;
-        }
+    .product-card {
+      background-color: #fff;
+      color: #000;
+      margin: 10px;
+      padding: 20px;
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+      border-radius: 15px;
+      text-align: center;
+      width: 280px;
+      transition: transform 0.3s;
+    }
 
-        .product-card button {
-            background-color: #630505;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
+    .product-card:hover {
+      transform: scale(1.05);
+    }
 
-        .product-card button:hover {
-            background-color: #850404;
-        }
+    .product-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
 
-        footer {
-            background-color: #570404;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 20px;
-        }
-    
+    .product-card h3 {
+      color: #870000;
+      margin: 15px 0 10px;
+    }
 
-.checkout-form label {
-    font-weight: bold;
-    display: block;
-    margin: 15px 0 5px;
-}
+    .product-card p {
+      font-size: 18px;
+      margin: 10px 0;
+    }
 
-.checkout-form input[type="text"], 
-.checkout-form input[type="email"], 
-.checkout-form input[type="number"], 
-.checkout-form input[type="tel"] {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-}
+    .product-card button {
+      background: linear-gradient(90deg, #630505, #a00000);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
 
-.checkout-form button {
-    background-color: #700808;
-    color: white;
-    border: none;
-    padding: 15px;
-    font-size: 18px;
-    cursor: pointer;
-    border-radius: 5px;
-    width: 100%;
-    transition: background-color 0.3s;
-}
+    .product-card button:hover {
+      background: #ff4444;
+    }
 
-.checkout-form button:hover {
-    background-color: #8d0000;
-}
-
-footer {
-    background-color: #700303;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    margin-top: 20px;
-}
-</style>
-    </style>
+    footer {
+      background-color: #570404;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
 
 <header>
-    <h1>Loja Oficial - Clube Hunters</h1>
-    <p>Compre as Camisas Oficiais do Nosso Time</p>
+  <h1>🛒 Loja Oficial - Clube Hunters</h1>
+  <p>Vista a camisa, sinta a paixão, carregue a garra!</p>
 </header>
 
 <nav>
-    <a href="index.html">Home</a>
-    <a href="noticias.html">Notícias</a>
-    <a href="jogos.html">Jogos</a>
-    <a href="time.html">Time</a>
-    <a href="loja.html">Loja</a>
-    <a href="contato.html">Contato</a>
-    <a href="socio.html">Sócio-Caçador</a>
+  <a href="index.html">Home</a>
+  <a href="noticias.html">Notícias</a>
+  <a href="jogos.html">Jogos</a>
+  <a href="time.html">Time</a>
+  <a href="loja.html">Loja</a>
+  <a href="contato.html">Contato</a>
+  <a href="socio.html">Sócio-Caçador</a>
 </nav>
+
 <div class="content">
-    <h1>Camisas Oficiais</h1>
-    
+  
+  <!-- CAMISAS -->
+  <div class="category">
+    <h2>👕 Camisas</h2>
     <div class="products">
-        
-        <div class="product-card">
-            <img src="img/camisas.jpeg" alt="Camisa Principal">
-            <h2>Camisa Principal</h2>
-            <p>R$ 80,00</p>
-            <button onclick="window.location.href='checkout.html'">Comprar</button>
-        </div>
-        
-        <div class="product-card">
-            <img src="img/camisas-2.jpeg" alt="Camisa Secundária">
-            <h2>Camisa Secundária</h2>
-            <p>R$ 80,00</p>
-            <button onclick="window.location.href='checkout.html'">Comprar</button>
-            
-        </div>
-        
-        <div class="product-card">
-            <img src="img/goleiro.jpeg" alt="Camisa de Treino">
-            <h2>Camisa modelo goleiro</h2>
-            <p>R$ 70,00</p>
-            <button onclick="window.location.href='checkout.html'">Comprar</button>
-        </div>
-        
-        
+      <div class="product-card">
+        <img src="img/camisas.jpeg" alt="Camisa Principal">
+        <h3>Camisa Principal</h3>
+        <p>R$ 80,00</p>
+        <button onclick="window.location.href='checkout.html'">Comprar</button>
+      </div>
+
+      <div class="product-card">
+        <img src="img/camisas-2.jpeg" alt="Camisa Secundária">
+        <h3>Camisa Secundária</h3>
+        <p>R$ 80,00</p>
+        <button onclick="window.location.href='checkout.html'">Comprar</button>
+      </div>
+
+      <div class="product-card">
+        <img src="img/goleiro.jpeg" alt="Camisa de Goleiro">
+        <h3>Camisa de Goleiro</h3>
+        <p>R$ 70,00</p>
+        <button onclick="window.location.href='checkout.html'">Comprar</button>
+      </div>
     </div>
+  </div>
+
+  <!-- JAQUETAS -->
+  <div class="category">
+    <h2>🧥 Jaquetas</h2>
+    <div class="products">
+      <div class="product-card">
+        <img src="img/jaqueta1.jpeg" alt="Jaqueta Hunters">
+        <h3>Jaqueta Hunters</h3>
+        <p>R$ 150,00</p>
+        <button onclick="window.location.href='checkout.html'">Comprar</button>
+      </div>
+      <div class="product-card">
+        <img src="img/jaqueta2.jpeg" alt="Jaqueta Treino">
+        <h3>Jaqueta de Treino</h3>
+        <p>R$ 140,00</p>
+        <button onclick="window.location.href='checkout.html'">Comprar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BONÉS -->
+  <div class="category">
+    <h2>🧢 Bonés</h2>
+    <div class="products">
+      <div class="product-card">
+        <img src="img/bone1.jpeg" alt="Boné Oficial">
+        <h3>Boné Oficial</h3>
+        <p>R$ 60,00</p>
+        <button onclick="window.location.href='checkout.html'">Comprar</button>
+      </div>
+      <div class="product-card">
+        <img src="img/bone2.jpeg" alt="Boné Street">
+        <h3>Boné Street Hunters</h3>
+        <p>R$ 65,00</p>
+        <button onclick="window.location.href='checkout.html'">Comprar</button>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <footer>
-    <p>&copy; 2025 Clube de Futebol Hunters. Todos os direitos reservados.</p>
+  <p>&copy; 2025 Clube de Futebol Hunters. Todos os direitos reservados.</p>
 </footer>
 
 </body>
