@@ -1,144 +1,198 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="index.html" type="image/x-icon">
-    
-    <title>Jogos - Clube Hunters</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #000000;
-            color: #383737;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="index.html" type="image/x-icon">
+  <title>Jogos - Clube Hunters</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
 
-        header {
-            background-color: #6b0606; /* Verde Esmeralda */
-            color: rgb(255, 252, 252);
-            padding: 20px;
-            text-align: center;
-        }
+    body {
+      background: #0b0b0b;
+      color: #fff;
+    }
 
-        nav {
-            background-color: #000000; /* Verde mais escuro */
-            display: flex;
-            justify-content: space-around;
-            padding: 15px 0;
-        }
+    header {
+      background: linear-gradient(135deg, #ff0000, #111);
+      color: #fff;
+      padding: 1.5rem;
+      text-align: center;
+    }
 
-        nav a {
-            color: rgb(255, 255, 255);
-            text-decoration: none;
-            font-weight: bold;
-            padding: 10px;
-            transition: background-color 0.3s;
-        }
+    header h1 {
+      font-size: 2rem;
+    }
 
-        nav a:hover {
-            background-color: #e60909;
-            border-radius: 5px;
-        }
+    nav {
+      background: #111;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 1rem;
+    }
 
-        .content {
-            padding: 20px;
-        }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
 
-        h1 {
-            text-align: center;
-            color: #e0dbdb;
-        }
+    nav a:hover {
+      color: #ff0000;
+      transform: scale(1.1);
+    }
 
-        .games-list {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+    .content {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
 
-        .game-card {
-            background-color: white;
-            padding: 20px;
-            margin: 10px 0;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 600px;
-            border-radius: 10px;
-        }
+    .content h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      color: #ff0000;
+    }
 
-        .game-card h2 {
-            margin: 0;
-            color: #911212;
-        }
+    .games-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
 
-        .game-card p {
-            margin: 5px 0;
-        }
+    .game-card {
+      background: #1a1a1a;
+      border-radius: 15px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 15px rgba(255,0,0,0.4);
+      text-align: center;
+      transition: 0.3s;
+    }
 
-        footer {
-            background-color: #660505;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 20px;
-        }
-    </style>
+    .game-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 6px 20px rgba(255,0,0,0.6);
+    }
+
+    .match {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .match img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      object-fit: cover;
+    }
+
+    .vs {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #ff0000;
+    }
+
+    .game-info p {
+      margin: 0.3rem 0;
+      font-size: 0.95rem;
+      color: #ddd;
+    }
+  </style>
 </head>
 <body>
 
 <header>
-    <h1>Clube de Futebol Hunters</h1>
-    <p>Próximos Jogos</p>
+  <h1>Clube de Futebol Hunters</h1>
+  <p>Próximos Jogos</p>
 </header>
 
 <nav>
-    <a href="index.html">Home</a>
-    <a href="noticias.html">Notícias</a>
-    <a href="jogos.html">Jogos</a>
-    <a href="time.html">Time</a>
-    <a href="loja.html">Loja</a>
-    <a href="contato.html">Contato</a>
-    <a href="socio.html">Sócio-Caçador</a>
+  <a href="index.html">Home</a>
+  <a href="noticias.html">Notícias</a>
+  <a href="jogos.html">Jogos</a>
+  <a href="time.html">Time</a>
+  <a href="loja.html">Loja</a>
+  <a href="contato.html">Contato</a>
+  <a href="socio.html">Sócio-Caçador</a>
 </nav>
 
 <div class="content">
-    <h1>Calendário de Jogos</h1>
-    <div class="games-list">
+  <h1>Calendário de Jogos</h1>
+  <div class="games-list">
 
-        <div class="game-card">
-            <h2>Hunters X Iluminats</h2>
-            <p>Data: A confirmar</p>
-            <p>Horário: A confirmar</p>
-            <p>Local: A confirmar </p>
-        </div>
-
-        <div class="game-card">
-            <h2>Hunters X SóLapada</h2>
-            <p>Data: A confirmar</p>
-            <p>Horário: A confirmar</p>
-            <p>Local: A confirmar</p>
-        </div>
-
-        <div class="game-card">
-            <h2>Hunters vs El River</h2>
-            <p>Data: A confirmar</p>
-            <p>Horário: A confirmar</p>
-            <p>Local: A confirmar</p>
-        </div>
-
-        <div class="game-card">
-            <h2>Hunters X Molestados (Ida)</h2>
-            <p>Data: A confirmar</p>
-            <p>Horário: A confirmar</p>
-            <p>Local: A confirmar</p>
-        </div>
-
+    <div class="game-card">
+      <div class="match">
+        <img src="img/hunters_logo.png" alt="Hunters Logo">
+        <span class="vs">X</span>
+        <img src="img/iluminats_logo.png" alt="Iluminats Logo">
+      </div>
+      <div class="game-info">
+        <p><strong>Hunters X Iluminats</strong></p>
+        <p>📅 Data: A confirmar</p>
+        <p>🕒 Horário: A confirmar</p>
+        <p>📍 Local: A confirmar</p>
+      </div>
     </div>
+
+    <div class="game-card">
+      <div class="match">
+        <img src="img/hunters_logo.png" alt="Hunters Logo">
+        <span class="vs">X</span>
+        <img src="img/solapada_logo.png" alt="SóLapada Logo">
+      </div>
+      <div class="game-info">
+        <p><strong>Hunters X SóLapada</strong></p>
+        <p>📅 Data: A confirmar</p>
+        <p>🕒 Horário: A confirmar</p>
+        <p>📍 Local: A confirmar</p>
+      </div>
+    </div>
+
+    <div class="game-card">
+      <div class="match">
+        <img src="img/hunters_logo.png" alt="Hunters Logo">
+        <span class="vs">X</span>
+        <img src="img/elriver_logo.png" alt="El River Logo">
+      </div>
+      <div class="game-info">
+        <p><strong>Hunters X El River</strong></p>
+        <p>📅 Data: A confirmar</p>
+        <p>🕒 Horário: A confirmar</p>
+        <p>📍 Local: A confirmar</p>
+      </div>
+    </div>
+
+    <div class="game-card">
+      <div class="match">
+        <img src="img/hunters_logo.png" alt="Hunters Logo">
+        <span class="vs">X</span>
+        <img src="img/molestados_logo.png" alt="Molestados Logo">
+      </div>
+      <div class="game-info">
+        <p><strong>Hunters X Molestados (Ida)</strong></p>
+        <p>📅 Data: A confirmar</p>
+        <p>🕒 Horário: A confirmar</p>
+        <p>📍 Local: A confirmar</p>
+      </div>
+    </div>
+
+  </div>
 </div>
 
 <footer>
-    <p>&copy; 2025 Clube de Futebol Hunters. Todos os direitos reservados.</p>
+  <p>&copy; 2025 Clube de Futebol Hunters. Todos os direitos reservados.</p>
 </footer>
 
 </body>
