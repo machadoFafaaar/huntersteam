@@ -3,91 +3,103 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loja Oficial - Clube Hunters</title>
   <link rel="shortcut icon" href="img/file.ico" type="image/x-icon">
-  <title>Loja - Clube de Futebol Hunters</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: #080808;
+      font-family: Arial, sans-serif;
+      background-color: #0a0a0a;
       color: #fff;
     }
 
     header {
-      background: linear-gradient(90deg, #5f0505, #870000);
-      color: white;
-      padding: 30px;
+      background: url('img/banner-hunters.jpg') no-repeat center center/cover;
+      height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
+      color: #fff;
+      position: relative;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+    }
+
+    header h1, header p {
+      position: relative;
+      z-index: 2;
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+
+    header p {
+      font-size: 1.3em;
     }
 
     nav {
-      background-color: #0e0f0f;
+      background-color: #700000;
       display: flex;
-      justify-content: space-around;
-      padding: 15px 0;
-      flex-wrap: wrap;
+      justify-content: center;
+      padding: 15px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     nav a {
-      color: #f1f1f1;
+      color: white;
       text-decoration: none;
       font-weight: bold;
-      padding: 10px 15px;
+      margin: 0 20px;
       transition: 0.3s;
     }
 
     nav a:hover {
-      background-color: #fff;
-      color: #000;
-      border-radius: 5px;
+      color: #ffd700;
     }
 
-    .content {
-      padding: 30px 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    h1, h2 {
+    .section {
+      padding: 50px 20px;
       text-align: center;
-      margin-bottom: 20px;
     }
 
-    h1 {
-      color: #ff4444;
+    .section h2 {
+      font-size: 2em;
+      margin-bottom: 30px;
+      color: #ffd700;
       text-transform: uppercase;
-      font-size: 2.5em;
-    }
-
-    h2 {
-      color: #ffb347;
-      border-bottom: 2px solid #ffb347;
+      border-bottom: 3px solid #ffd700;
       display: inline-block;
-      padding-bottom: 5px;
-    }
-
-    .category {
-      margin-bottom: 60px;
+      padding-bottom: 10px;
     }
 
     .products {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
+      gap: 25px;
     }
 
     .product-card {
-      background-color: #fff;
-      color: #000;
-      margin: 10px;
-      padding: 20px;
-      box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+      background: #1a1a1a;
       border-radius: 15px;
-      text-align: center;
-      width: 280px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.6);
       transition: transform 0.3s;
+      width: 280px;
     }
 
     .product-card:hover {
@@ -96,49 +108,52 @@
 
     .product-card img {
       width: 100%;
-      height: auto;
-      border-radius: 10px;
+      height: 250px;
+      object-fit: cover;
     }
 
     .product-card h3 {
-      color: #870000;
-      margin: 15px 0 10px;
+      margin: 15px 0 5px;
+      font-size: 1.4em;
+      color: #ffd700;
     }
 
     .product-card p {
-      font-size: 18px;
-      margin: 10px 0;
+      margin: 5px 0 15px;
+      font-size: 1.2em;
     }
 
     .product-card button {
-      background: linear-gradient(90deg, #630505, #a00000);
-      color: white;
+      background-color: #ffd700;
+      color: #000;
       border: none;
       padding: 12px 20px;
       font-size: 16px;
+      font-weight: bold;
       cursor: pointer;
       border-radius: 8px;
+      margin-bottom: 15px;
       transition: 0.3s;
     }
 
     .product-card button:hover {
-      background: #ff4444;
+      background-color: #fff200;
     }
 
     footer {
-      background-color: #570404;
-      color: white;
+      background: #111;
       text-align: center;
       padding: 20px;
-      margin-top: 40px;
+      color: #aaa;
+      font-size: 0.9em;
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>🛒 Loja Oficial - Clube Hunters</h1>
-  <p>Vista a camisa, sinta a paixão, carregue a garra!</p>
+  <h1>Loja Oficial Hunters</h1>
+  <p>Vista as cores do nosso clube</p>
 </header>
 
 <nav>
@@ -151,74 +166,68 @@
   <a href="socio.html">Sócio-Caçador</a>
 </nav>
 
-<div class="content">
-  
-  <!-- CAMISAS -->
-  <div class="category">
-    <h2>👕 Camisas</h2>
-    <div class="products">
-      <div class="product-card">
-        <img src="img/camisas.jpeg" alt="Camisa Principal">
-        <h3>Camisa Principal</h3>
-        <p>R$ 80,00</p>
-        <button onclick="window.location.href='checkout.html'">Comprar</button>
-      </div>
-
-      <div class="product-card">
-        <img src="img/camisas-2.jpeg" alt="Camisa Secundária">
-        <h3>Camisa Secundária</h3>
-        <p>R$ 80,00</p>
-        <button onclick="window.location.href='checkout.html'">Comprar</button>
-      </div>
-
-      <div class="product-card">
-        <img src="img/goleiro.jpeg" alt="Camisa de Goleiro">
-        <h3>Camisa de Goleiro</h3>
-        <p>R$ 70,00</p>
-        <button onclick="window.location.href='checkout.html'">Comprar</button>
-      </div>
+<!-- Camisas -->
+<section class="section">
+  <h2>Camisas</h2>
+  <div class="products">
+    <div class="product-card">
+      <img src="img/camisas.jpeg" alt="Camisa Principal">
+      <h3>Camisa Principal</h3>
+      <p>R$ 80,00</p>
+      <button>Comprar</button>
+    </div>
+    <div class="product-card">
+      <img src="img/camisas-2.jpeg" alt="Camisa Secundária">
+      <h3>Camisa Secundária</h3>
+      <p>R$ 80,00</p>
+      <button>Comprar</button>
+    </div>
+    <div class="product-card">
+      <img src="img/goleiro.jpeg" alt="Camisa Goleiro">
+      <h3>Camisa Goleiro</h3>
+      <p>R$ 70,00</p>
+      <button>Comprar</button>
     </div>
   </div>
+</section>
 
-  <!-- JAQUETAS -->
-  <div class="category">
-    <h2>🧥 Jaquetas</h2>
-    <div class="products">
-      <div class="product-card">
-        <img src="img/jaqueta1.jpeg" alt="Jaqueta Hunters">
-        <h3>Jaqueta Hunters</h3>
-        <p>R$ 150,00</p>
-        <button onclick="window.location.href='checkout.html'">Comprar</button>
-      </div>
-      <div class="product-card">
-        <img src="img/jaqueta2.jpeg" alt="Jaqueta Treino">
-        <h3>Jaqueta de Treino</h3>
-        <p>R$ 140,00</p>
-        <button onclick="window.location.href='checkout.html'">Comprar</button>
-      </div>
+<!-- Jaquetas -->
+<section class="section">
+  <h2>Jaquetas</h2>
+  <div class="products">
+    <div class="product-card">
+      <img src="img/jaqueta1.jpeg" alt="Jaqueta Preta">
+      <h3>Jaqueta Preta</h3>
+      <p>R$ 150,00</p>
+      <button>Comprar</button>
+    </div>
+    <div class="product-card">
+      <img src="img/jaqueta2.jpeg" alt="Jaqueta Vermelha">
+      <h3>Jaqueta Vermelha</h3>
+      <p>R$ 160,00</p>
+      <button>Comprar</button>
     </div>
   </div>
+</section>
 
-  <!-- BONÉS -->
-  <div class="category">
-    <h2>🧢 Bonés</h2>
-    <div class="products">
-      <div class="product-card">
-        <img src="img/bone1.jpeg" alt="Boné Oficial">
-        <h3>Boné Oficial</h3>
-        <p>R$ 60,00</p>
-        <button onclick="window.location.href='checkout.html'">Comprar</button>
-      </div>
-      <div class="product-card">
-        <img src="img/bone2.jpeg" alt="Boné Street">
-        <h3>Boné Street Hunters</h3>
-        <p>R$ 65,00</p>
-        <button onclick="window.location.href='checkout.html'">Comprar</button>
-      </div>
+<!-- Acessórios -->
+<section class="section">
+  <h2>Acessórios</h2>
+  <div class="products">
+    <div class="product-card">
+      <img src="img/boné.jpeg" alt="Boné Hunters">
+      <h3>Boné Hunters</h3>
+      <p>R$ 50,00</p>
+      <button>Comprar</button>
+    </div>
+    <div class="product-card">
+      <img src="img/cachecol.jpeg" alt="Cachecol Hunters">
+      <h3>Cachecol Hunters</h3>
+      <p>R$ 40,00</p>
+      <button>Comprar</button>
     </div>
   </div>
-
-</div>
+</section>
 
 <footer>
   <p>&copy; 2025 Clube de Futebol Hunters. Todos os direitos reservados.</p>
