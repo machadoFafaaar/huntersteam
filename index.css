@@ -78,3 +78,215 @@ footer {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
 }
+
+/* =====================================================
+   PATROCINADOR OFICIAL - SHAKEZ
+===================================================== */
+
+.sponsor-section {
+
+  position: relative;
+
+  padding: 110px 7%;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(229, 9, 20, 0.18),
+      transparent 55%
+    ),
+    #080808;
+
+  border-top: 1px solid #222;
+
+  border-bottom: 1px solid #222;
+
+  text-align: center;
+
+}
+
+
+.sponsor-section::before {
+
+  content: "SHAKEZ";
+
+  position: absolute;
+
+  top: 50%;
+
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  font-family: 'Anton', sans-serif;
+
+  font-size: 22vw;
+
+  color: rgba(255,255,255,0.025);
+
+  white-space: nowrap;
+
+  pointer-events: none;
+
+}
+
+
+.sponsor-content {
+
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 900px;
+
+  margin: auto;
+
+}
+
+
+.sponsor-label {
+
+  color: #e50914;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 5px;
+
+  text-transform: uppercase;
+
+  margin-bottom: 15px;
+
+}
+
+
+.sponsor-content h2 {
+
+  font-family: 'Anton', sans-serif;
+
+  font-size: clamp(50px, 8vw, 100px);
+
+  line-height: .85;
+
+  text-transform: uppercase;
+
+  margin-bottom: 25px;
+
+}
+
+
+.sponsor-content h2 span {
+
+  color: #e50914;
+
+}
+
+
+.sponsor-content p {
+
+  max-width: 650px;
+
+  margin: auto;
+
+  color: #888;
+
+  font-size: 15px;
+
+  line-height: 1.7;
+
+}
+
+
+.sponsor-logo {
+
+  width: 230px;
+
+  height: 230px;
+
+  margin: 50px auto 35px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  transition: .4s;
+
+}
+
+
+.sponsor-logo img {
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: contain;
+
+  filter: drop-shadow(
+    0 0 25px rgba(255,255,255,.12)
+  );
+
+  transition: .4s;
+
+}
+
+
+.sponsor-logo:hover {
+
+  transform: scale(1.08);
+
+}
+
+
+.sponsor-logo:hover img {
+
+  filter: drop-shadow(
+    0 0 35px rgba(229,9,20,.35)
+  );
+
+}
+
+
+.sponsor-button {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 15px 28px;
+
+  background: #e50914;
+
+  color: white;
+
+  text-decoration: none;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+
+  transition: .3s;
+
+}
+
+
+.sponsor-button:hover {
+
+  background: white;
+
+  color: black;
+
+  transform: translateY(-3px);
+
+}
