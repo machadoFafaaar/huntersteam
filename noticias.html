@@ -1,225 +1,1055 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="shortcut icon" href="img/file.ico" type="image/x-icon">
-  <title>Notícias Hunters</title>
+
+  <meta name="description" content="Hunters FC - Últimas notícias, resultados e novidades do clube.">
+
+  <title>Notícias | HUNTERS FC</title>
+
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap');
+
+    :root {
+      --red: #e50914;
+      --black: #050505;
+      --dark: #0b0b0b;
+      --gray: #151515;
+      --white: #fff;
+      --muted: #999;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
-      background: #0b0b0b;
-      color: #fff;
+      background: var(--black);
+      color: white;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
     }
+
+    /* =========================
+       HEADER
+    ========================= */
 
     header {
-      background: linear-gradient(135deg, #ff0000, #111);
-      padding: 1.5rem;
-      text-align: center;
+      position: relative;
+      z-index: 100;
+      width: 100%;
+      padding: 24px 7%;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      background: #050505;
+      border-bottom: 1px solid #222;
     }
 
-    header h1 {
-      font-size: 2.2rem;
-      letter-spacing: 2px;
+    .logo {
+      font-family: 'Anton', sans-serif;
+      font-size: 32px;
+      letter-spacing: 3px;
+      color: white;
+      text-decoration: none;
     }
 
-    header p {
-      margin-top: 0.3rem;
-      font-size: 1rem;
-      color: #ddd;
+    .logo span {
+      color: var(--red);
     }
 
     nav {
       display: flex;
-      justify-content: center;
-      background: #111;
-      padding: 1rem;
-      gap: 2rem;
+      align-items: center;
+      gap: 28px;
     }
 
     nav a {
-      color: #fff;
+      position: relative;
+
+      color: white;
       text-decoration: none;
-      font-weight: 500;
-      transition: 0.3s;
+
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+
+      transition: .3s;
+    }
+
+    nav a::after {
+      content: "";
+
+      position: absolute;
+      left: 0;
+      bottom: -7px;
+
+      width: 0;
+      height: 2px;
+
+      background: var(--red);
+
+      transition: .3s;
     }
 
     nav a:hover {
-      color: #ff0000;
-      transform: scale(1.1);
+      color: var(--red);
     }
 
-    .hero {
-      background: url("Hunters.HTML/img/Captura de tela 2024-08-18 215515.png") center/cover no-repeat;
-      height: 45vh;
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    nav a.active {
+      color: var(--red);
+    }
+
+    nav a.active::after {
+      width: 100%;
+    }
+
+    /* =========================
+       PAGE HEADER
+    ========================= */
+
+    .page-header {
+      padding: 100px 7% 70px;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(229, 9, 20, .15),
+          transparent
+        ),
+        #080808;
+
+      border-bottom: 1px solid #1d1d1d;
+    }
+
+    .page-label {
+      color: var(--red);
+
+      font-size: 12px;
+      font-weight: 800;
+
+      letter-spacing: 5px;
+      text-transform: uppercase;
+
+      margin-bottom: 15px;
+    }
+
+    .page-title {
+      font-family: 'Anton', sans-serif;
+
+      font-size: clamp(70px, 10vw, 140px);
+
+      line-height: .85;
+
+      text-transform: uppercase;
+    }
+
+    .page-description {
+      max-width: 600px;
+
+      margin-top: 30px;
+
+      color: #999;
+
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* =========================
+       NEWS
+    ========================= */
+
+    .news-section {
+      padding: 80px 7%;
+    }
+
+    .news-feature {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+
+      min-height: 520px;
+
+      background: #101010;
+
+      overflow: hidden;
+
+      margin-bottom: 70px;
+    }
+
+    .feature-image {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-image img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      transition: transform .7s ease;
+    }
+
+    .news-feature:hover .feature-image img {
+      transform: scale(1.06);
+    }
+
+    .feature-content {
+      padding: 50px;
+
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
-      text-align: center;
-      position: relative;
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.6);
-    }
+    .category {
+      color: var(--red);
 
-    .hero h1, .hero p {
-      position: relative;
-      z-index: 2;
-    }
+      font-size: 11px;
+      font-weight: 800;
 
-    .hero h1 {
-      font-size: 2.8rem;
+      letter-spacing: 3px;
+
       text-transform: uppercase;
-      text-shadow: 2px 2px 10px black;
+
+      margin-bottom: 15px;
     }
 
-    .hero p {
-      margin-top: 0.5rem;
-      font-size: 1.2rem;
-      background: rgba(255,0,0,0.7);
-      padding: 0.4rem 1rem;
-      border-radius: 6px;
+    .feature-title {
+      font-family: 'Anton', sans-serif;
+
+      font-size: clamp(40px, 5vw, 70px);
+
+      line-height: .95;
+
+      text-transform: uppercase;
     }
 
-    .content {
-      padding: 2rem;
-      max-width: 1200px;
-      margin: auto;
+    .feature-text {
+      color: #999;
+
+      margin-top: 25px;
+
+      line-height: 1.7;
+    }
+
+    .date {
+      margin-top: 30px;
+
+      color: #666;
+
+      font-size: 11px;
+      font-weight: 700;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+    }
+
+    .read-more {
+      display: inline-block;
+
+      margin-top: 30px;
+
+      width: fit-content;
+
+      padding: 14px 24px;
+
+      background: var(--red);
+
+      color: white;
+
+      text-decoration: none;
+
+      font-size: 11px;
+      font-weight: 800;
+
+      letter-spacing: 1px;
+
+      text-transform: uppercase;
+
+      transition: .3s;
+    }
+
+    .read-more:hover {
+      background: white;
+      color: black;
+      transform: translateY(-3px);
+    }
+
+    /* =========================
+       GRID
+    ========================= */
+
+    .news-heading {
+      margin-bottom: 35px;
+    }
+
+    .news-heading-label {
+      color: var(--red);
+
+      font-size: 11px;
+      font-weight: 800;
+
+      letter-spacing: 4px;
+
+      text-transform: uppercase;
+
+      margin-bottom: 10px;
+    }
+
+    .news-heading-title {
+      font-family: 'Anton', sans-serif;
+
+      font-size: 55px;
+
+      text-transform: uppercase;
     }
 
     .news-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 20px;
     }
 
     .news-card {
-      background: #1a1a1a;
-      border-radius: 12px;
+      background: #101010;
+
       overflow: hidden;
-      box-shadow: 0 4px 12px rgba(255,0,0,0.3);
-      transition: transform 0.3s, box-shadow 0.3s;
+
+      transition: .35s;
     }
 
     .news-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 6px 20px rgba(255,0,0,0.6);
     }
 
-    .news-card img {
+    .card-image {
+      height: 280px;
+
+      overflow: hidden;
+    }
+
+    .card-image img {
       width: 100%;
-      height: 200px;
+      height: 100%;
+
       object-fit: cover;
-      transition: 0.4s;
+
+      transition: .6s;
     }
 
-    .news-card:hover img {
-      transform: scale(1.05);
+    .news-card:hover .card-image img {
+      transform: scale(1.08);
     }
 
-    .news-card h3 {
-      color: #ff0000;
-      margin: 1rem;
+    .card-content {
+      padding: 25px;
     }
 
-    .news-card p {
-      margin: 0 1rem 1rem;
-      color: #ddd;
-      font-size: 0.95rem;
-      line-height: 1.4rem;
+    .card-title {
+      font-family: 'Anton', sans-serif;
+
+      font-size: 30px;
+
+      line-height: 1;
+
+      text-transform: uppercase;
     }
+
+    .card-description {
+      margin-top: 15px;
+
+      color: #888;
+
+      font-size: 14px;
+
+      line-height: 1.6;
+    }
+
+    .card-date {
+      display: block;
+
+      margin-top: 20px;
+
+      color: #555;
+
+      font-size: 10px;
+
+      font-weight: 800;
+
+      letter-spacing: 2px;
+    }
+
+    /* =========================
+       CTA
+    ========================= */
+
+    .news-cta {
+      margin-top: 90px;
+
+      padding: 70px;
+
+      text-align: center;
+
+      background:
+        linear-gradient(
+          135deg,
+          #b00009,
+          #e50914
+        );
+    }
+
+    .news-cta h2 {
+      font-family: 'Anton', sans-serif;
+
+      font-size: clamp(45px, 7vw, 90px);
+
+      line-height: .9;
+
+      text-transform: uppercase;
+    }
+
+    .news-cta p {
+      max-width: 500px;
+
+      margin: 20px auto 30px;
+
+      color: rgba(255,255,255,.8);
+
+      line-height: 1.6;
+    }
+
+    .cta-button {
+      display: inline-block;
+
+      padding: 15px 30px;
+
+      background: white;
+
+      color: black;
+
+      text-decoration: none;
+
+      font-size: 11px;
+      font-weight: 800;
+
+      letter-spacing: 1px;
+
+      text-transform: uppercase;
+
+      transition: .3s;
+    }
+
+    .cta-button:hover {
+      background: black;
+      color: white;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer {
-      background: #111;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-      border-top: 2px solid #ff0000;
+      padding: 60px 7% 30px;
+
+      background: #050505;
     }
 
-    footer p {
-      font-size: 0.9rem;
-      color: #bbb;
+    .footer-top {
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 40px;
+
+      padding-bottom: 50px;
+
+      border-bottom: 1px solid #222;
     }
+
+    .footer-logo {
+      font-family: 'Anton', sans-serif;
+
+      font-size: 50px;
+    }
+
+    .footer-logo span {
+      color: var(--red);
+    }
+
+    .footer-links {
+      display: flex;
+
+      gap: 25px;
+
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: #aaa;
+
+      text-decoration: none;
+
+      text-transform: uppercase;
+
+      font-size: 11px;
+
+      font-weight: 700;
+    }
+
+    .footer-links a:hover {
+      color: var(--red);
+    }
+
+    .copyright {
+      padding-top: 25px;
+
+      color: #555;
+
+      font-size: 11px;
+
+      display: flex;
+
+      justify-content: space-between;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media(max-width: 900px) {
+
+      header {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      nav {
+        gap: 15px;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+      }
+
+      .news-feature {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-image {
+        height: 400px;
+      }
+
+      .news-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-top {
+        flex-direction: column;
+      }
+
+    }
+
+    @media(max-width: 600px) {
+
+      .page-header {
+        padding: 70px 5% 50px;
+      }
+
+      .news-section {
+        padding: 60px 5%;
+      }
+
+      .news-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-content {
+        padding: 30px;
+      }
+
+      .feature-image {
+        height: 300px;
+      }
+
+      .news-cta {
+        padding: 50px 25px;
+      }
+
+      .copyright {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+    }
+
   </style>
+
 </head>
+
 <body>
 
-<header>
-  <h1>Clube de Futebol Hunters</h1>
-  <p>Últimas Notícias do Clube</p>
-</header>
 
-<nav>
-  <a href="index.html">Home</a>
-  <a href="noticias.html">Notícias</a>
-  <a href="jogos.html">Jogos</a>
-  <a href="time.html">Time</a>
-  <a href="loja.html">Loja</a>
-  <a href="contato.html">Contato</a>
-</nav>
+  <!-- =========================
+       HEADER
+  ========================= -->
 
-<section class="hero">
-  <h1>Notícias em Destaque</h1>
-  <p>Fique por dentro das últimas novidades da Hunters</p>
-</section>
+  <header>
 
-<div class="content">
-  <section class="news-grid">
+    <a href="index.html" class="logo">
+      HUNTERS<span>.</span>
+    </a>
 
-    <div class="news-card">
-      <img src="img/Imagem do WhatsApp de 2025-04-21 à(s) 22.40.43_27614f9f.jpg">
-      <h3>GEOVANNE NOSSO CAMISA 69</h3>
-      <p>🚨 NOVO REFORÇO NA ÁREA! 🚨<br>
-      Atenção, nação Hunters! Temos um novo caçador no meio-campo! 💥⚽<br>
-      🔥 Geovanne é o novo meia da Hunters, chega pra incendiar os jogos e deixar os adversários no chão! 💣👟<br>
-      💬 “Cheguei pra acabar com esses times da Vila Aurora.” – Geovanne</p>
+    <nav>
+
+      <a href="index.html">
+        Início
+      </a>
+
+      <a href="noticias.html" class="active">
+        Notícias
+      </a>
+
+      <a href="jogos.html">
+        Jogos
+      </a>
+
+      <a href="time.html">
+        Time
+      </a>
+
+      <a href="index.html#artes">
+        Artes
+      </a>
+
+      <a href="loja.html">
+        Loja
+      </a>
+
+      <a href="contato.html">
+        Contato
+      </a>
+
+    </nav>
+
+  </header>
+
+
+  <!-- =========================
+       PAGE HEADER
+  ========================= -->
+
+  <section class="page-header">
+
+    <div class="page-label">
+      Hunters Futebol Clube
     </div>
 
-    <div class="news-card">
-      <img src="img/WhatsApp Image 2025-05-17 at 00.43.30.jpeg" alt="GK 06">
-      <h3>DANIEL GERAMIAS NOSSO CAMISA 06</h3>
-      <p>🧤 Novo paredão na área!<br>
-      Daniel Geremias chega para defender o gol da Hunters!<br>
-      Bem-vindo ao bando, muralha! 🔥🔴⚫</p>
-    </div>
+    <h1 class="page-title">
+      Notícias
+    </h1>
 
-    <div class="news-card">
-      <img src="img/HUNTERS.png" alt="Peneira">
-      <h3>Peneira Hunters</h3>
-      <p>🔍⚽ Está chegando a hora!<br>
-      A Hunters FC vai realizar uma peneira em busca de novos talentos!<br>
-      📅 05/06 – 📍 Alvorada – 🕒 14:30<br>
-      Idade mínima: 14 a 20 anos.<br>
-      Vista o manto e faça história!</p>
-    </div>
-
-    <div class="news-card">
-      <img src="img/WhatsApp Image 2025-05-17 at 02.12.51.jpeg" alt="Torcida Hunters">
-      <h3>Gratidão, Força Jovem Glu Glu!</h3>
-      <p>Vocês são a alma da Hunters! 💪<br>
-      Estão conosco nos momentos difíceis e nas vitórias.<br>
-      Obrigado, Força Jovem Glu Glu! 🔴⚫<br>
-      #HuntersFC #JuntosSomosMaisFortes</p>
-    </div>
+    <p class="page-description">
+      Fique por dentro de tudo que acontece no Hunters FC.
+      Resultados, jogadores, jogos, bastidores e tudo que
+      movimenta os Caçadores.
+    </p>
 
   </section>
-</div>
 
-<footer>
-  <p>&copy; 2025 Clube de Futebol Hunters. Todos os direitos reservados.</p>
-</footer>
+
+  <!-- =========================
+       NEWS
+  ========================= -->
+
+  <main class="news-section">
+
+
+    <!-- DESTAQUE -->
+
+    <article class="news-feature">
+
+      <div class="feature-image">
+
+        <img
+          src="https://images.unsplash.com/photo-1518091043644-c1d4457512c6?auto=format&fit=crop&w=1400&q=90"
+          alt="Hunters FC em campo">
+
+      </div>
+
+
+      <div class="feature-content">
+
+        <div class="category">
+          Jogo
+        </div>
+
+        <h2 class="feature-title">
+          Hunters entra em quadra em busca de mais uma vitória
+        </h2>
+
+        <p class="feature-text">
+          Os Caçadores seguem firmes na temporada e
+          entram em campo buscando mais um grande resultado.
+          Confira todos os detalhes da partida.
+        </p>
+
+        <div class="date">
+          05 OUT 2026
+        </div>
+
+        <a href="#" class="read-more">
+          Ler notícia
+        </a>
+
+      </div>
+
+    </article>
+
+
+    <!-- OUTRAS NOTÍCIAS -->
+
+    <div class="news-heading">
+
+      <div class="news-heading-label">
+        Hunters News
+      </div>
+
+      <h2 class="news-heading-title">
+        Mais notícias
+      </h2>
+
+    </div>
+
+
+    <div class="news-grid">
+
+
+      <!-- NOTÍCIA 01 -->
+
+      <article class="news-card">
+
+        <div class="card-image">
+
+          <img
+            src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=900&q=85"
+            alt="Jogador Hunters">
+
+        </div>
+
+        <div class="card-content">
+
+          <div class="category">
+            Elenco
+          </div>
+
+          <h3 class="card-title">
+            Novo talento vem chamando atenção
+          </h3>
+
+          <p class="card-description">
+            O jogador vem ganhando espaço e mostrando
+            personalidade dentro de quadra.
+          </p>
+
+          <span class="card-date">
+            04 OUT 2026
+          </span>
+
+        </div>
+
+      </article>
+
+
+      <!-- NOTÍCIA 02 -->
+
+      <article class="news-card">
+
+        <div class="card-image">
+
+          <img
+            src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=900&q=85"
+            alt="Partida de futebol">
+
+        </div>
+
+        <div class="card-content">
+
+          <div class="category">
+            Resultado
+          </div>
+
+          <h3 class="card-title">
+            Hunters vence e mostra sua força
+          </h3>
+
+          <p class="card-description">
+            Mais uma grande atuação dos Caçadores
+            dentro das quatro linhas.
+          </p>
+
+          <span class="card-date">
+            30 SET 2026
+          </span>
+
+        </div>
+
+      </article>
+
+
+      <!-- NOTÍCIA 03 -->
+
+      <article class="news-card">
+
+        <div class="card-image">
+
+          <img
+            src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=900&q=85"
+            alt="Futebol">
+
+        </div>
+
+        <div class="card-content">
+
+          <div class="category">
+            Clube
+          </div>
+
+          <h3 class="card-title">
+            Uma nova era para o Hunters
+          </h3>
+
+          <p class="card-description">
+            O clube continua crescendo dentro e fora
+            das quatro linhas.
+          </p>
+
+          <span class="card-date">
+            28 SET 2026
+          </span>
+
+        </div>
+
+      </article>
+
+
+      <!-- NOTÍCIA 04 -->
+
+      <article class="news-card">
+
+        <div class="card-image">
+
+          <img
+            src="https://images.unsplash.com/photo-1553778263-73a83bab9b0c?auto=format&fit=crop&w=900&q=85"
+            alt="Torcida">
+
+        </div>
+
+        <div class="card-content">
+
+          <div class="category">
+            Torcida
+          </div>
+
+          <h3 class="card-title">
+            Força Jovem Glu Glu presente
+          </h3>
+
+          <p class="card-description">
+            A torcida continua fazendo a festa e
+            apoiando os Caçadores.
+          </p>
+
+          <span class="card-date">
+            25 SET 2026
+          </span>
+
+        </div>
+
+      </article>
+
+
+      <!-- NOTÍCIA 05 -->
+
+      <article class="news-card">
+
+        <div class="card-image">
+
+          <img
+            src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=900&q=85"
+            alt="Hunters FC">
+
+        </div>
+
+        <div class="card-content">
+
+          <div class="category">
+            Hunters
+          </div>
+
+          <h3 class="card-title">
+            Os Caçadores continuam avançando
+          </h3>
+
+          <p class="card-description">
+            Raça, união e resiliência continuam sendo
+            marcas do Hunters FC.
+          </p>
+
+          <span class="card-date">
+            20 SET 2026
+          </span>
+
+        </div>
+
+      </article>
+
+
+      <!-- NOTÍCIA 06 -->
+
+      <article class="news-card">
+
+        <div class="card-image">
+
+          <img
+            src="https://images.unsplash.com/photo-1566577739112-5180d4bf9390?auto=format&fit=crop&w=900&q=85"
+            alt="Futebol">
+
+        </div>
+
+        <div class="card-content">
+
+          <div class="category">
+            Clube
+          </div>
+
+          <h3 class="card-title">
+            Hunters preparado para os próximos desafios
+          </h3>
+
+          <p class="card-description">
+            O elenco se prepara para uma sequência
+            importante de partidas.
+          </p>
+
+          <span class="card-date">
+            18 SET 2026
+          </span>
+
+        </div>
+
+      </article>
+
+    </div>
+
+
+    <!-- CTA -->
+
+    <div class="news-cta">
+
+      <h2>
+        CAÇADORES
+        <br>
+        AVANTE.
+      </h2>
+
+      <p>
+        Acompanhe o Hunters FC e fique por dentro
+        de cada capítulo dessa história.
+      </p>
+
+      <a href="jogos.html" class="cta-button">
+        Ver próximos jogos
+      </a>
+
+    </div>
+
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <div class="footer-top">
+
+      <div class="footer-logo">
+        HUNTERS<span>.</span>
+      </div>
+
+      <div class="footer-links">
+
+        <a href="index.html">
+          Início
+        </a>
+
+        <a href="noticias.html">
+          Notícias
+        </a>
+
+        <a href="jogos.html">
+          Jogos
+        </a>
+
+        <a href="time.html">
+          Time
+        </a>
+
+        <a href="index.html#artes">
+          Artes
+        </a>
+
+        <a href="loja.html">
+          Loja
+        </a>
+
+        <a href="contato.html">
+          Contato
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+      <span>
+        © 2026 Hunters FC. Todos os direitos reservados.
+      </span>
+
+      <span>
+        Feito para os Caçadores.
+      </span>
+
+    </div>
+
+  </footer>
+
 
 </body>
 </html>
