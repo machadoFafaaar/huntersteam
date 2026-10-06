@@ -1,179 +1,931 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="shortcut icon" href="img/file.ico" type="image/x-icon">
-  <meta name="description" content="HUNTERS FC - Clube de Futebol Oficial">
-  <meta name="keywords" content="Clube de futebol, HUNTERS FC, Caçadores, futebol, time de futebol">
+
+  <meta name="description" content="Hunters FC — Caçadores. Raça. Resiliência.">
+  <meta name="keywords" content="Hunters FC, futebol, Hunters, Caçadores, Shakez">
   <meta name="author" content="Fabrício Machado">
-  <title>HUNTERS FC</title>
-  
-  <!-- Estilos -->
+
+  <title>HUNTERS FC | Caçadores</title>
+
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap');
+
+    :root {
+      --red: #e50914;
+      --red-dark: #9d0008;
+      --black: #050505;
+      --dark: #0b0b0b;
+      --gray: #151515;
+      --white: #ffffff;
+      --muted: #999999;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
-      background: #0d0d0d;
-      color: #fff;
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
     }
 
+    /* =========================
+       HEADER
+    ========================= */
+
     header {
-      background: linear-gradient(135deg, #ff0000, #111);
-      padding: 1rem;
-      text-align: center;
-      font-size: 2rem;
-      font-weight: bold;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      padding: 24px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.85),
+        transparent
+      );
+    }
+
+    .logo {
+      font-family: 'Anton', sans-serif;
+      font-size: 32px;
       letter-spacing: 3px;
+      color: white;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: var(--red);
     }
 
     nav {
       display: flex;
-      justify-content: center;
-      background: #111;
-      padding: 0.8rem;
-      gap: 1.5rem;
+      align-items: center;
+      gap: 28px;
     }
 
     nav a {
-      color: #fff;
+      color: white;
       text-decoration: none;
-      font-weight: 500;
+      text-transform: uppercase;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      position: relative;
+      transition: 0.3s;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -7px;
+      width: 0;
+      height: 2px;
+      background: var(--red);
       transition: 0.3s;
     }
 
     nav a:hover {
-      color: #ff0000;
-      transform: scale(1.1);
+      color: var(--red);
     }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
 
     .hero {
-      background: url("https://images.unsplash.com/photo-1518091043644-c1d4457512c6") center/cover no-repeat;
-      height: 60vh;
+      min-height: 100vh;
+      position: relative;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: #fff;
-      position: relative;
+      align-items: flex-end;
+      padding: 0 7% 100px;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(0,0,0,0.95) 0%,
+          rgba(0,0,0,0.55) 45%,
+          rgba(0,0,0,0.15) 100%
+        ),
+        linear-gradient(
+          0deg,
+          #050505 0%,
+          transparent 45%
+        ),
+        url("https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&w=2000&q=90")
+        center/cover no-repeat;
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.6);
+    .hero-content {
+      max-width: 750px;
+      animation: heroIn 1s ease forwards;
     }
 
-    .hero h1, .hero p {
-      position: relative;
-      z-index: 2;
+    .hero-label {
+      color: var(--red);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 5px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
     }
 
     .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(70px, 12vw, 170px);
+      line-height: 0.85;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      text-shadow: 2px 2px 10px black;
     }
 
-    .hero p {
-      font-size: 1.2rem;
-      background: rgba(255,0,0,0.7);
-      padding: 0.5rem 1.2rem;
-      border-radius: 8px;
+    .hero h1 span {
+      color: var(--red);
     }
 
-    .grid-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      padding: 2rem;
-      max-width: 1200px;
-      margin: auto;
+    .hero-description {
+      max-width: 550px;
+      margin-top: 30px;
+      color: #ddd;
+      font-size: 17px;
+      line-height: 1.7;
     }
 
-    .card {
-      background: #1a1a1a;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(255,0,0,0.3);
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 35px;
+    }
+
+    .btn {
+      padding: 15px 28px;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 1px;
       transition: 0.3s;
     }
 
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 6px 20px rgba(255,0,0,0.6);
+    .btn-red {
+      background: var(--red);
+      color: white;
     }
 
-    .card h3 {
-      color: #ff0000;
-      margin-bottom: 0.5rem;
+    .btn-red:hover {
+      background: white;
+      color: black;
+      transform: translateY(-3px);
     }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.5);
+      color: white;
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: black;
+    }
+
+    /* =========================
+       SECTIONS
+    ========================= */
+
+    section {
+      padding: 100px 7%;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      margin-bottom: 45px;
+    }
+
+    .section-label {
+      color: var(--red);
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(45px, 6vw, 80px);
+      text-transform: uppercase;
+      line-height: 0.9;
+    }
+
+    .section-link {
+      color: white;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 800;
+      border-bottom: 2px solid var(--red);
+      padding-bottom: 5px;
+    }
+
+    /* =========================
+       NOTÍCIAS
+    ========================= */
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 18px;
+    }
+
+    .news-card {
+      min-height: 430px;
+      position: relative;
+      overflow: hidden;
+      background: var(--gray);
+    }
+
+    .news-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .news-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .news-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 28px;
+      background: linear-gradient(
+        transparent 30%,
+        rgba(0,0,0,0.95)
+      );
+    }
+
+    .news-category {
+      color: var(--red);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .news-title {
+      font-family: 'Anton', sans-serif;
+      font-size: 30px;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    /* =========================
+       JOGO
+    ========================= */
+
+    .match-section {
+      background:
+        linear-gradient(
+          90deg,
+          rgba(229,9,20,0.95),
+          rgba(100,0,0,0.85)
+        ),
+        url("https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=2000&q=80")
+        center/cover;
+      text-align: center;
+    }
+
+    .match-section .section-label {
+      color: white;
+    }
+
+    .match {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 70px;
+      margin-top: 45px;
+    }
+
+    .team {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .team-name {
+      font-family: 'Anton', sans-serif;
+      font-size: 45px;
+    }
+
+    .vs {
+      font-family: 'Anton', sans-serif;
+      font-size: 30px;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .match-info {
+      margin-top: 35px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* =========================
+       HUNTERS ART
+    ========================= */
+
+    .art-section {
+      background: #090909;
+    }
+
+    .art-intro {
+      max-width: 600px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+
+    .art-grid {
+      columns: 3 250px;
+      column-gap: 18px;
+    }
+
+    .art-card {
+      break-inside: avoid;
+      margin-bottom: 18px;
+      overflow: hidden;
+      background: #111;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .art-card img {
+      display: block;
+      width: 100%;
+      transition: 0.5s;
+    }
+
+    .art-card:hover img {
+      transform: scale(1.04);
+      filter: brightness(0.65);
+    }
+
+    .art-name {
+      position: absolute;
+      left: 20px;
+      bottom: 20px;
+      opacity: 0;
+      transition: 0.3s;
+      font-family: 'Anton', sans-serif;
+      font-size: 25px;
+      text-transform: uppercase;
+    }
+
+    .art-card:hover .art-name {
+      opacity: 1;
+    }
+
+    /* =========================
+       SHAKEZ
+    ========================= */
+
+    .sponsor {
+      padding: 80px 7%;
+      background: #000;
+      text-align: center;
+      border-top: 1px solid #222;
+      border-bottom: 1px solid #222;
+    }
+
+    .sponsor-label {
+      color: #777;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .sponsor-name {
+      margin-top: 20px;
+      font-family: 'Anton', sans-serif;
+      font-size: 80px;
+      letter-spacing: 5px;
+    }
+
+    .sponsor-name span {
+      color: var(--red);
+    }
+
+    .sponsor-text {
+      max-width: 500px;
+      margin: 15px auto 0;
+      color: #888;
+      line-height: 1.6;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer {
-      background: #111;
-      padding: 1rem;
-      text-align: center;
-      font-size: 0.9rem;
-      margin-top: 2rem;
-      border-top: 2px solid #ff0000;
+      padding: 60px 7% 30px;
+      background: #050505;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      padding-bottom: 50px;
+      border-bottom: 1px solid #222;
+    }
+
+    .footer-logo {
+      font-family: 'Anton', sans-serif;
+      font-size: 50px;
+    }
+
+    .footer-logo span {
+      color: var(--red);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: #aaa;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .footer-links a:hover {
+      color: var(--red);
+    }
+
+    .copyright {
+      padding-top: 25px;
+      color: #555;
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* =========================
+       ANIMAÇÃO
+    ========================= */
+
+    @keyframes heroIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 900px) {
+
+      header {
+        position: relative;
+        background: #050505;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      nav {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero {
+        min-height: 80vh;
+        padding: 70px 7% 60px;
+      }
+
+      .news-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .news-card {
+        min-height: 350px;
+      }
+
+      .match {
+        gap: 25px;
+      }
+
+      .team-name {
+        font-size: 32px;
+      }
+
+      .sponsor-name {
+        font-size: 55px;
+      }
+
+      .footer-top {
+        flex-direction: column;
+      }
+
+      .copyright {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      section {
+        padding: 70px 5%;
+      }
+
+      .hero h1 {
+        font-size: 70px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        text-align: center;
+      }
+
+      .match {
+        flex-direction: column;
+      }
+
+      .vs {
+        font-size: 22px;
+      }
     }
   </style>
 </head>
+
 <body>
-    
-<header>
-  HUNTERS FC
-</header>
 
-<nav>
-  <a href="index.html">Home</a>
-  <a href="noticias.html">Notícias</a>
-  <a href="jogos.html">Jogos</a>
-  <a href="time.html">Time</a>
-  <a href="loja.html">Loja</a>
-  <a href="contato.html">Contato</a>
-  <a href="socio.html">Sócio-Caçador</a>
-</nav>
+  <!-- HEADER -->
 
-<section class="hero">
-  <h1>Bem-vindo ao Clube Hunters</h1>
-  <p>A paixão pelo futebol nos une!</p>
-</section>
+  <header>
 
-<div class="content">
-  <section class="grid-container">
-    <div class="card">
-      <h3>Últimas Notícias</h3>
-      <p>⚽ HUNTERS VENCE ÁGUIA AZUL POR 13X3 NO JOGO DA IDA!</p>
+    <a href="index.html" class="logo">
+      HUNTERS<span>.</span>
+    </a>
+
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="noticias.html">Notícias</a>
+      <a href="jogos.html">Jogos</a>
+      <a href="time.html">Time</a>
+      <a href="#artes">Artes</a>
+      <a href="loja.html">Loja</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+
+  </header>
+
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <div class="hero-label">
+        Hunters Futebol Clube
+      </div>
+
+      <h1>
+        HUNTERS<br>
+        <span>FC</span>
+      </h1>
+
+      <p class="hero-description">
+        Caçadores. Raça. Resiliência.
+        Um clube construído dentro e fora das quatro linhas.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="jogos.html" class="btn btn-red">
+          Próximos jogos
+        </a>
+
+        <a href="time.html" class="btn btn-outline">
+          Conheça o time
+        </a>
+      </div>
+
     </div>
-    <div class="card">
-      <h3>NOVO ATLETA</h3>
-      <p>🔥 KAIO ESTÁ DANDO SHOW PELA HUNTERS.</p>
-    </div>
-    <div class="card">
-      <h3>MAIS UMA VITÓRIA</h3>
-      <p>⚽ HUNTERS VENCE ANÔNIMOS POR 23X18. UM JOGO APERTADO E KAIO SAIU COMO O GRANDE HERÓI.</p>
-    </div>
-    <div class="card">
-      <h3>Contato</h3>
-      <p>📩 Entre em contato e agende seu teste para vestir a camisa Hunters.</p>
-    </div>
+
   </section>
-</div>
 
-<footer>
-  <p>&copy; 2025 Clube de Futebol Hunters. Todos os direitos reservados.</p>
-</footer>
+
+  <!-- NOTÍCIAS -->
+
+  <section>
+
+    <div class="section-header">
+
+      <div>
+        <div class="section-label">
+          Hunters News
+        </div>
+
+        <h2 class="section-title">
+          Últimas notícias
+        </h2>
+      </div>
+
+      <a href="noticias.html" class="section-link">
+        Ver todas
+      </a>
+
+    </div>
+
+
+    <div class="news-grid">
+
+      <article class="news-card">
+
+        <img
+          src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1200&q=80"
+          alt="Hunters FC">
+
+        <div class="news-overlay">
+
+          <div class="news-category">
+            Resultado
+          </div>
+
+          <h3 class="news-title">
+            Hunters vence e mostra sua força
+          </h3>
+
+        </div>
+
+      </article>
+
+
+      <article class="news-card">
+
+        <img
+          src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=900&q=80"
+          alt="Jogador de futebol">
+
+        <div class="news-overlay">
+
+          <div class="news-category">
+            Elenco
+          </div>
+
+          <h3 class="news-title">
+            Novo talento chega ao Hunters
+          </h3>
+
+        </div>
+
+      </article>
+
+
+      <article class="news-card">
+
+        <img
+          src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=900&q=80"
+          alt="Futebol">
+
+        <div class="news-overlay">
+
+          <div class="news-category">
+            Clube
+          </div>
+
+          <h3 class="news-title">
+            Uma nova era para o Hunters
+          </h3>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- PRÓXIMO JOGO -->
+
+  <section class="match-section">
+
+    <div class="section-label">
+      Próximo confronto
+    </div>
+
+    <h2 class="section-title">
+      Dia de jogo
+    </h2>
+
+    <div class="match">
+
+      <div class="team">
+        <div class="team-name">
+          HUNTERS
+        </div>
+      </div>
+
+      <div class="vs">
+        VS
+      </div>
+
+      <div class="team">
+        <div class="team-name">
+          ADVERSÁRIO
+        </div>
+      </div>
+
+    </div>
+
+    <div class="match-info">
+      Data • Horário • Local
+    </div>
+
+  </section>
+
+
+  <!-- HUNTERS ART -->
+
+  <section class="art-section" id="artes">
+
+    <div class="section-header">
+
+      <div>
+
+        <div class="section-label">
+          Hunters Creative
+        </div>
+
+        <h2 class="section-title">
+          Hunters Art
+        </h2>
+
+      </div>
+
+    </div>
+
+    <p class="art-intro">
+      A identidade Hunters também vive através da arte.
+      Aqui reunimos os desenhos, ilustrações e criações
+      produzidas por quem faz parte da nossa história.
+    </p>
+
+
+    <div class="art-grid">
+
+      <!-- SUBSTITUIR PELAS ARTES REAIS -->
+
+      <div class="art-card">
+
+        <img
+          src="https://images.unsplash.com/photo-1547891654-e66ed7ebb968?auto=format&fit=crop&w=900&q=80"
+          alt="Arte Hunters">
+
+        <div class="art-name">
+          Hunters Art 01
+        </div>
+
+      </div>
+
+
+      <div class="art-card">
+
+        <img
+          src="https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format&fit=crop&w=900&q=80"
+          alt="Arte Hunters">
+
+        <div class="art-name">
+          Hunters Art 02
+        </div>
+
+      </div>
+
+
+      <div class="art-card">
+
+        <img
+          src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=900&q=80"
+          alt="Arte Hunters">
+
+        <div class="art-name">
+          Hunters Art 03
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SHAKEZ -->
+
+  <section class="sponsor">
+
+    <div class="sponsor-label">
+      Patrocinador oficial
+    </div>
+
+    <div class="sponsor-name">
+      SHAKE<span>Z</span>
+    </div>
+
+    <p class="sponsor-text">
+      O Hunters FC agradece ao nosso parceiro oficial
+      Shakez por fazer parte dessa caminhada.
+    </p>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="footer-top">
+
+      <div class="footer-logo">
+        HUNTERS<span>.</span>
+      </div>
+
+      <div class="footer-links">
+
+        <a href="index.html">Início</a>
+        <a href="noticias.html">Notícias</a>
+        <a href="jogos.html">Jogos</a>
+        <a href="time.html">Time</a>
+        <a href="#artes">Artes</a>
+        <a href="loja.html">Loja</a>
+        <a href="contato.html">Contato</a>
+
+      </div>
+
+    </div>
+
+    <div class="copyright">
+
+      <span>
+        © 2026 Hunters FC. Todos os direitos reservados.
+      </span>
+
+      <span>
+        Feito para os Caçadores.
+      </span>
+
+    </div>
+
+  </footer>
 
 </body>
 </html>
-
-
+```
