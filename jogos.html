@@ -1,207 +1,1519 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="shortcut icon" href="img/file.ico" type="image/x-icon">
-  <title>Jogos - Clube Hunters</title>
+
+  <meta
+    name="description"
+    content="Hunters FC - Jogos, resultados e próximos confrontos dos Caçadores."
+  >
+
+  <title>Jogos | HUNTERS FC</title>
+
+
   <style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap');
+
+
+    :root {
+
+      --red: #e50914;
+      --red-dark: #a00008;
+
+      --black: #050505;
+      --dark: #0b0b0b;
+      --gray: #151515;
+
+      --white: #ffffff;
+      --muted: #888888;
+
+    }
+
+
     * {
+
       margin: 0;
       padding: 0;
+
       box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+
     }
+
+
+    html {
+
+      scroll-behavior: smooth;
+
+    }
+
 
     body {
-      background: #0b0b0b;
-      color: #fff;
+
+      background: var(--black);
+
+      color: var(--white);
+
+      font-family: 'Inter', sans-serif;
+
+      overflow-x: hidden;
+
     }
+
+
+    /* =====================================================
+       HEADER
+    ===================================================== */
 
     header {
-      background: linear-gradient(135deg, #ff0000, #111);
-      color: #fff;
-      padding: 1.5rem;
-      text-align: center;
+
+      position: relative;
+
+      width: 100%;
+
+      padding: 24px 7%;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      background: #050505;
+
+      border-bottom: 1px solid #222;
+
+      z-index: 100;
+
     }
 
-    header h1 {
-      font-size: 2rem;
+
+    .logo {
+
+      font-family: 'Anton', sans-serif;
+
+      font-size: 32px;
+
+      letter-spacing: 3px;
+
+      color: white;
+
+      text-decoration: none;
+
     }
+
+
+    .logo span {
+
+      color: var(--red);
+
+    }
+
 
     nav {
-      background: #111;
+
       display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      padding: 1rem;
+
+      align-items: center;
+
+      gap: 28px;
+
     }
+
 
     nav a {
-      color: #fff;
+
+      position: relative;
+
+      color: white;
+
       text-decoration: none;
-      font-weight: 500;
-      transition: 0.3s;
+
+      text-transform: uppercase;
+
+      font-size: 12px;
+
+      font-weight: 700;
+
+      letter-spacing: 1px;
+
+      transition: .3s;
+
     }
+
+
+    nav a::after {
+
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+
+      bottom: -7px;
+
+      width: 0;
+
+      height: 2px;
+
+      background: var(--red);
+
+      transition: .3s;
+
+    }
+
 
     nav a:hover {
-      color: #ff0000;
-      transform: scale(1.1);
+
+      color: var(--red);
+
     }
 
-    .content {
-      padding: 2rem;
-      max-width: 1200px;
-      margin: auto;
+
+    nav a:hover::after {
+
+      width: 100%;
+
     }
 
-    .content h1 {
+
+    nav a.active {
+
+      color: var(--red);
+
+    }
+
+
+    nav a.active::after {
+
+      width: 100%;
+
+    }
+
+
+    /* =====================================================
+       PAGE HEADER
+    ===================================================== */
+
+    .page-header {
+
+      padding: 100px 7% 70px;
+
+      background:
+
+        linear-gradient(
+          90deg,
+          rgba(229, 9, 20, .18),
+          transparent
+        ),
+
+        #080808;
+
+      border-bottom: 1px solid #1d1d1d;
+
+    }
+
+
+    .page-label {
+
+      color: var(--red);
+
+      font-size: 12px;
+
+      font-weight: 800;
+
+      letter-spacing: 5px;
+
+      text-transform: uppercase;
+
+      margin-bottom: 15px;
+
+    }
+
+
+    .page-title {
+
+      font-family: 'Anton', sans-serif;
+
+      font-size: clamp(70px, 10vw, 140px);
+
+      line-height: .85;
+
+      text-transform: uppercase;
+
+    }
+
+
+    .page-description {
+
+      max-width: 600px;
+
+      margin-top: 30px;
+
+      color: #999;
+
+      line-height: 1.7;
+
+      font-size: 16px;
+
+    }
+
+
+    /* =====================================================
+       PRÓXIMO JOGO
+    ===================================================== */
+
+    .next-match {
+
+      position: relative;
+
+      padding: 100px 7%;
+
       text-align: center;
-      margin-bottom: 2rem;
-      font-size: 2rem;
-      color: #ff0000;
+
+      overflow: hidden;
+
+      background:
+
+        linear-gradient(
+          135deg,
+          rgba(229, 9, 20, .95),
+          rgba(90, 0, 5, .95)
+        );
+
     }
 
-    .games-list {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
+
+    .next-match::before {
+
+      content: "HUNTERS";
+
+      position: absolute;
+
+      font-family: 'Anton', sans-serif;
+
+      font-size: 25vw;
+
+      color: rgba(0,0,0,.08);
+
+      left: 50%;
+
+      top: 50%;
+
+      transform: translate(-50%, -50%);
+
+      white-space: nowrap;
+
+      pointer-events: none;
+
     }
 
-    .game-card {
-      background: #1a1a1a;
-      border-radius: 15px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 15px rgba(255,0,0,0.4);
-      text-align: center;
-      transition: 0.3s;
+
+    .match-label {
+
+      position: relative;
+
+      font-size: 12px;
+
+      font-weight: 800;
+
+      letter-spacing: 5px;
+
+      text-transform: uppercase;
+
+      margin-bottom: 15px;
+
     }
 
-    .game-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 6px 20px rgba(255,0,0,0.6);
+
+    .match-title {
+
+      position: relative;
+
+      font-family: 'Anton', sans-serif;
+
+      font-size: clamp(45px, 7vw, 90px);
+
+      line-height: .9;
+
+      text-transform: uppercase;
+
     }
 
-    .match {
-      display: flex;
+
+    .match-date {
+
+      position: relative;
+
+      margin-top: 25px;
+
+      font-size: 13px;
+
+      font-weight: 700;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+
+      color: rgba(255,255,255,.8);
+
+    }
+
+
+    .match-box {
+
+      position: relative;
+
+      max-width: 1000px;
+
+      margin: 60px auto 0;
+
+      padding: 45px;
+
+      display: grid;
+
+      grid-template-columns: 1fr auto 1fr;
+
       align-items: center;
+
+      gap: 40px;
+
+      background: rgba(0,0,0,.25);
+
+      border: 1px solid rgba(255,255,255,.2);
+
+      backdrop-filter: blur(10px);
+
+    }
+
+
+    .match-team {
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      gap: 18px;
+
+    }
+
+
+    .team-badge {
+
+      width: 100px;
+
+      height: 100px;
+
+      display: flex;
+
+      align-items: center;
+
       justify-content: center;
-      gap: 1.5rem;
-      margin-bottom: 1rem;
+
+      background: rgba(255,255,255,.1);
+
+      border: 1px solid rgba(255,255,255,.3);
+
+      font-family: 'Anton', sans-serif;
+
+      font-size: 30px;
+
     }
 
-    .match img {
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      border: 3px solid #fff;
-      object-fit: cover;
+
+    .team-name {
+
+      font-family: 'Anton', sans-serif;
+
+      font-size: 42px;
+
+      text-transform: uppercase;
+
     }
 
-    .vs {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #ff0000;
+
+    .versus {
+
+      font-family: 'Anton', sans-serif;
+
+      font-size: 35px;
+
+      color: rgba(255,255,255,.6);
+
     }
 
-    .game-info p {
-      margin: 0.3rem 0;
-      font-size: 0.95rem;
-      color: #ddd;
+
+    .match-location {
+
+      position: relative;
+
+      margin-top: 30px;
+
+      font-size: 12px;
+
+      font-weight: 700;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+
     }
+
+
+    /* =====================================================
+       RESULTADOS
+    ===================================================== */
+
+    .results {
+
+      padding: 100px 7%;
+
+    }
+
+
+    .section-label {
+
+      color: var(--red);
+
+      font-size: 11px;
+
+      font-weight: 800;
+
+      letter-spacing: 4px;
+
+      text-transform: uppercase;
+
+      margin-bottom: 10px;
+
+    }
+
+
+    .section-title {
+
+      font-family: 'Anton', sans-serif;
+
+      font-size: clamp(50px, 6vw, 80px);
+
+      line-height: .9;
+
+      text-transform: uppercase;
+
+      margin-bottom: 50px;
+
+    }
+
+
+    .results-list {
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 12px;
+
+    }
+
+
+    .result {
+
+      display: grid;
+
+      grid-template-columns: 130px 1fr 180px 1fr 130px;
+
+      align-items: center;
+
+      gap: 20px;
+
+      padding: 25px 30px;
+
+      background: #101010;
+
+      border: 1px solid #1b1b1b;
+
+      transition: .3s;
+
+    }
+
+
+    .result:hover {
+
+      background: #151515;
+
+      border-color: #333;
+
+      transform: translateX(6px);
+
+    }
+
+
+    .result-date {
+
+      color: #666;
+
+      font-size: 11px;
+
+      font-weight: 800;
+
+      letter-spacing: 1px;
+
+      text-transform: uppercase;
+
+    }
+
+
+    .result-team {
+
+      font-family: 'Anton', sans-serif;
+
+      font-size: 27px;
+
+      text-transform: uppercase;
+
+    }
+
+
+    .result-team.right {
+
+      text-align: right;
+
+    }
+
+
+    .score {
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      gap: 10px;
+
+    }
+
+
+    .score-number {
+
+      min-width: 48px;
+
+      padding: 8px;
+
+      text-align: center;
+
+      background: #1b1b1b;
+
+      font-family: 'Anton', sans-serif;
+
+      font-size: 27px;
+
+    }
+
+
+    .score-x {
+
+      color: #555;
+
+      font-weight: 800;
+
+    }
+
+
+    .result-status {
+
+      text-align: center;
+
+      color: var(--red);
+
+      font-size: 10px;
+
+      font-weight: 800;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+
+    }
+
+
+    /* =====================================================
+       DESTAQUE DE VITÓRIA
+    ===================================================== */
+
+    .victory {
+
+      border-left: 4px solid var(--red);
+
+    }
+
+
+    /* =====================================================
+       ESTATÍSTICAS
+    ===================================================== */
+
+    .stats {
+
+      padding: 80px 7%;
+
+      background: #090909;
+
+      border-top: 1px solid #1b1b1b;
+
+      border-bottom: 1px solid #1b1b1b;
+
+    }
+
+
+    .stats-grid {
+
+      max-width: 1000px;
+
+      margin: auto;
+
+      display: grid;
+
+      grid-template-columns: repeat(4, 1fr);
+
+      gap: 20px;
+
+    }
+
+
+    .stat {
+
+      text-align: center;
+
+      padding: 30px 15px;
+
+      background: #101010;
+
+    }
+
+
+    .stat-number {
+
+      font-family: 'Anton', sans-serif;
+
+      font-size: 60px;
+
+      color: var(--red);
+
+      line-height: 1;
+
+    }
+
+
+    .stat-label {
+
+      margin-top: 10px;
+
+      color: #777;
+
+      font-size: 10px;
+
+      font-weight: 800;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+
+    }
+
+
+    /* =====================================================
+       CTA
+    ===================================================== */
+
+    .cta {
+
+      padding: 100px 7%;
+
+      text-align: center;
+
+      background:
+
+        linear-gradient(
+          135deg,
+          #a00008,
+          #e50914
+        );
+
+    }
+
+
+    .cta h2 {
+
+      font-family: 'Anton', sans-serif;
+
+      font-size: clamp(50px, 8vw, 100px);
+
+      line-height: .85;
+
+      text-transform: uppercase;
+
+    }
+
+
+    .cta p {
+
+      max-width: 550px;
+
+      margin: 25px auto 30px;
+
+      color: rgba(255,255,255,.8);
+
+      line-height: 1.6;
+
+    }
+
+
+    .cta-button {
+
+      display: inline-block;
+
+      padding: 15px 30px;
+
+      background: white;
+
+      color: black;
+
+      text-decoration: none;
+
+      font-size: 11px;
+
+      font-weight: 800;
+
+      letter-spacing: 1px;
+
+      text-transform: uppercase;
+
+      transition: .3s;
+
+    }
+
+
+    .cta-button:hover {
+
+      background: black;
+
+      color: white;
+
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    footer {
+
+      padding: 60px 7% 30px;
+
+      background: #050505;
+
+    }
+
+
+    .footer-top {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 40px;
+
+      padding-bottom: 50px;
+
+      border-bottom: 1px solid #222;
+
+    }
+
+
+    .footer-logo {
+
+      font-family: 'Anton', sans-serif;
+
+      font-size: 50px;
+
+    }
+
+
+    .footer-logo span {
+
+      color: var(--red);
+
+    }
+
+
+    .footer-links {
+
+      display: flex;
+
+      gap: 25px;
+
+      flex-wrap: wrap;
+
+    }
+
+
+    .footer-links a {
+
+      color: #aaa;
+
+      text-decoration: none;
+
+      text-transform: uppercase;
+
+      font-size: 11px;
+
+      font-weight: 700;
+
+    }
+
+
+    .footer-links a:hover {
+
+      color: var(--red);
+
+    }
+
+
+    .copyright {
+
+      padding-top: 25px;
+
+      color: #555;
+
+      font-size: 11px;
+
+      display: flex;
+
+      justify-content: space-between;
+
+    }
+
+
+    /* =====================================================
+       RESPONSIVO
+    ===================================================== */
+
+    @media(max-width: 900px) {
+
+      header {
+
+        flex-direction: column;
+
+        gap: 20px;
+
+      }
+
+
+      nav {
+
+        gap: 15px;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+      }
+
+
+      .match-box {
+
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+
+      }
+
+
+      .versus {
+
+        font-size: 25px;
+
+      }
+
+
+      .result {
+
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+
+        text-align: center;
+
+      }
+
+
+      .result-team.right {
+
+        text-align: center;
+
+      }
+
+
+      .result-date {
+
+        text-align: center;
+
+      }
+
+
+      .stats-grid {
+
+        grid-template-columns: 1fr 1fr;
+
+      }
+
+
+      .footer-top {
+
+        flex-direction: column;
+
+      }
+
+    }
+
+
+    @media(max-width: 600px) {
+
+      .page-header {
+
+        padding: 70px 5% 50px;
+
+      }
+
+
+      .results {
+
+        padding: 70px 5%;
+
+      }
+
+
+      .next-match {
+
+        padding: 70px 5%;
+
+      }
+
+
+      .team-name {
+
+        font-size: 35px;
+
+      }
+
+
+      .match-box {
+
+        padding: 30px 20px;
+
+      }
+
+
+      .stats {
+
+        padding: 60px 5%;
+
+      }
+
+
+      .stats-grid {
+
+        grid-template-columns: 1fr 1fr;
+
+      }
+
+
+      .copyright {
+
+        flex-direction: column;
+
+        gap: 10px;
+
+      }
+
+    }
+
   </style>
+
 </head>
+
+
 <body>
 
-<header>
-  <h1>Clube de Futebol Hunters</h1>
-  <p>Próximos Jogos</p>
-</header>
 
-<nav>
-  <a href="index.html">Home</a>
-  <a href="noticias.html">Notícias</a>
-  <a href="jogos.html">Jogos</a>
-  <a href="time.html">Time</a>
-  <a href="loja.html">Loja</a>
-  <a href="contato.html">Contato</a>
-  <a href="socio.html">Sócio-Caçador</a>
-</nav>
+  <!-- =====================================================
+       HEADER
+  ===================================================== -->
 
-<div class="content">
-  <h1>Calendário de Jogos</h1>
-  <div class="games-list">
+  <header>
 
-    <div class="game-card">
-      <div class="match">
-        <img src="img/HUNTERS (3).png" alt="Hunters Logo">
-        <span class="vs">X</span>
-        <img src="img/1.png" alt="Águia Azul Logo">
-      </div>
-      <div class="game-info">
-        <p><strong>Hunters X Águia Azul (Volta)</strong></p>
-        <p>📅 Data: 21/09/25</p>
-        <p>🕒 Horário: 14:00</p>
-        <p>📍 Local: Old Traford Alvorada</p>
-      </div>
+    <a href="index.html" class="logo">
+      HUNTERS<span>.</span>
+    </a>
+
+
+    <nav>
+
+      <a href="index.html">
+        Início
+      </a>
+
+      <a href="noticias.html">
+        Notícias
+      </a>
+
+      <a href="jogos.html" class="active">
+        Jogos
+      </a>
+
+      <a href="time.html">
+        Time
+      </a>
+
+      <a href="index.html#artes">
+        Artes
+      </a>
+
+      <a href="loja.html">
+        Loja
+      </a>
+
+      <a href="contato.html">
+        Contato
+      </a>
+
+    </nav>
+
+  </header>
+
+
+  <!-- =====================================================
+       TÍTULO
+  ===================================================== -->
+
+  <section class="page-header">
+
+    <div class="page-label">
+      Hunters Futebol Clube
     </div>
 
-    <div class="game-card">
-      <div class="match">
-        <img src="img/HUNTERS (3).png" alt="Hunters Logo">
-        <span class="vs">X</span>
-        <img src="img/3.png" alt="SóLapada Logo">
-      </div>
-      <div class="game-info">
-        <p><strong>Hunters X SóLapada</strong></p>
-        <p>📅 Data: 14/09/25</p>
-        <p>🕒 Horário: A confirmar</p>
-        <p>📍 Local: Old Traford Alvorada</p>
-      </div>
+
+    <h1 class="page-title">
+      Jogos
+    </h1>
+
+
+    <p class="page-description">
+
+      Confira os próximos desafios dos Caçadores,
+      acompanhe os resultados e reviva os grandes
+      momentos do Hunters FC.
+
+    </p>
+
+  </section>
+
+
+  <!-- =====================================================
+       PRÓXIMO JOGO
+  ===================================================== -->
+
+  <section class="next-match">
+
+    <div class="match-label">
+      Próximo confronto
     </div>
 
-    <div class="game-card">
-      <div class="match">
-        <img src="img/HUNTERS (3).png" alt="Hunters Logo">
-        <span class="vs">X</span>
-        <img src="img/2.png" alt="El River Logo">
-      </div>
-      <div class="game-info">
-        <p><strong>Hunters X El River</strong></p>
-        <p>📅 Data: A confirmar</p>
-        <p>🕒 Horário: A confirmar</p>
-        <p>📍 Local: A confirmar</p>
-      </div>
+
+    <h2 class="match-title">
+      DIA DE JOGO
+    </h2>
+
+
+    <div class="match-date">
+
+      DATA • HORÁRIO
+
     </div>
 
-    <div class="game-card">
-      <div class="match">
-        <img src="img/HUNTERS (3).png" alt="Hunters Logo">
-        <span class="vs">X</span>
-        <img src="img/hunters fc águia azul.png" alt="Molestados Logo">
+
+    <div class="match-box">
+
+
+      <!-- HUNTERS -->
+
+      <div class="match-team">
+
+        <div class="team-badge">
+          H
+        </div>
+
+        <div class="team-name">
+          HUNTERS
+        </div>
+
       </div>
-      <div class="game-info">
-        <p><strong>Hunters X Molestados (Ida)</strong></p>
-        <p>📅 Data: A confirmar</p>
-        <p>🕒 Horário: A confirmar</p>
-        <p>📍 Local: A confirmar</p>
+
+
+      <!-- VS -->
+
+      <div class="versus">
+        VS
       </div>
+
+
+      <!-- ADVERSÁRIO -->
+
+      <div class="match-team">
+
+        <div class="team-badge">
+          ?
+        </div>
+
+        <div class="team-name">
+          ADVERSÁRIO
+        </div>
+
+      </div>
+
+
     </div>
 
-  </div>
-</div>
 
-<footer>
-  <p>&copy; 2025 Clube de Futebol Hunters. Todos os direitos reservados.</p>
-</footer>
+    <div class="match-location">
+
+      📍 Local da partida
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       RESULTADOS
+  ===================================================== -->
+
+  <section class="results">
+
+    <div class="section-label">
+      Hunters Results
+    </div>
+
+
+    <h2 class="section-title">
+      Resultados
+    </h2>
+
+
+    <div class="results-list">
+
+
+      <!-- RESULTADO -->
+
+      <article class="result victory">
+
+        <div class="result-date">
+          13 SET 2026
+        </div>
+
+
+        <div class="result-team">
+          HUNTERS
+        </div>
+
+
+        <div class="score">
+
+          <div class="score-number">
+            17
+          </div>
+
+          <div class="score-x">
+            X
+          </div>
+
+          <div class="score-number">
+            21
+          </div>
+
+        </div>
+
+
+        <div class="result-team right">
+          REAL MADRUGA
+        </div>
+
+
+        <div class="result-status">
+          Final
+        </div>
+
+      </article>
+
+
+      <!-- RESULTADO -->
+
+      <article class="result victory">
+
+        <div class="result-date">
+          31 MAI 2026
+        </div>
+
+
+        <div class="result-team">
+          HUNTERS
+        </div>
+
+
+        <div class="score">
+
+          <div class="score-number">
+            13
+          </div>
+
+          <div class="score-x">
+            X
+          </div>
+
+          <div class="score-number">
+            3
+          </div>
+
+        </div>
+
+
+        <div class="result-team right">
+          ÁGUIA AZUL
+        </div>
+
+
+        <div class="result-status">
+          Final
+        </div>
+
+      </article>
+
+
+      <!-- RESULTADO -->
+
+      <article class="result victory">
+
+        <div class="result-date">
+          2026
+        </div>
+
+
+        <div class="result-team">
+          HUNTERS
+        </div>
+
+
+        <div class="score">
+
+          <div class="score-number">
+            23
+          </div>
+
+          <div class="score-x">
+            X
+          </div>
+
+          <div class="score-number">
+            18
+          </div>
+
+        </div>
+
+
+        <div class="result-team right">
+          ANÔNIMOS
+        </div>
+
+
+        <div class="result-status">
+          Final
+        </div>
+
+      </article>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       ESTATÍSTICAS
+  ===================================================== -->
+
+  <section class="stats">
+
+    <div class="stats-grid">
+
+
+      <div class="stat">
+
+        <div class="stat-number">
+          3
+        </div>
+
+        <div class="stat-label">
+          Jogos registrados
+        </div>
+
+      </div>
+
+
+      <div class="stat">
+
+        <div class="stat-number">
+          2
+        </div>
+
+        <div class="stat-label">
+          Vitórias
+        </div>
+
+      </div>
+
+
+      <div class="stat">
+
+        <div class="stat-number">
+          53
+        </div>
+
+        <div class="stat-label">
+          Gols marcados
+        </div>
+
+      </div>
+
+
+      <div class="stat">
+
+        <div class="stat-number">
+          42
+        </div>
+
+        <div class="stat-label">
+          Gols sofridos
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       CTA
+  ===================================================== -->
+
+  <section class="cta">
+
+    <h2>
+      AVANTE
+      <br>
+      HUNTERS.
+    </h2>
+
+
+    <p>
+
+      Cada partida é mais um capítulo da nossa história.
+      Continue acompanhando os Caçadores.
+
+    </p>
+
+
+    <a href="noticias.html" class="cta-button">
+
+      Ver notícias
+
+    </a>
+
+  </section>
+
+
+  <!-- =====================================================
+       FOOTER
+  ===================================================== -->
+
+  <footer>
+
+    <div class="footer-top">
+
+
+      <div class="footer-logo">
+        HUNTERS<span>.</span>
+      </div>
+
+
+      <div class="footer-links">
+
+        <a href="index.html">
+          Início
+        </a>
+
+        <a href="noticias.html">
+          Notícias
+        </a>
+
+        <a href="jogos.html">
+          Jogos
+        </a>
+
+        <a href="time.html">
+          Time
+        </a>
+
+        <a href="index.html#artes">
+          Artes
+        </a>
+
+        <a href="loja.html">
+          Loja
+        </a>
+
+        <a href="contato.html">
+          Contato
+        </a>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="copyright">
+
+      <span>
+        © 2026 Hunters FC. Todos os direitos reservados.
+      </span>
+
+      <span>
+        Feito para os Caçadores.
+      </span>
+
+    </div>
+
+  </footer>
+
 
 </body>
+
 </html>
-
-
-
-
-
-
-
-
